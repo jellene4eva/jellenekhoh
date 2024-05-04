@@ -1,0 +1,48 @@
+/** 
+    CSS variables cannot be used in media queries
+    UI kit breakpoints
+
+        xs: 300px;
+        s: 640px;
+        m: 960px;
+        l: 1200px;
+        xl: 1600px;
+        xxl: 2400px;
+
+    example:
+
+        body {
+            background-color: var(--global-color-primary);
+
+            @include breakpoint-xxl {
+                transform: scale(1.8);
+                transform-origin: top;
+            }
+        }
+
+*/
+
+@mixin breakpoint-xs {
+    @media (min-width: 639px) { @content; }
+}
+@mixin breakpoint-s {
+    @media (min-width: 640px) { @content; }
+}
+@mixin breakpoint-max-m {
+    @media (max-width: 960px) { @content; }
+}
+@mixin breakpoint-m {
+    @media (min-width: 960px) { @content; }
+}
+@mixin breakpoint-navbar {
+    @media (min-width: 1210px) { @content; }
+}
+@mixin breakpoint-l {
+    @media (min-width: 1200px) { @content; }
+}
+@mixin breakpoint-xl {
+    @media (min-width: 1600px) { @content; }
+}
+@mixin breakpoint-xxl {
+    @media (min-width: 2400px) { @content; }
+}

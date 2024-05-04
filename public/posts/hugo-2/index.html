@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Hugo 101 | Nasi Lemak &amp; Piirakka</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Hugo is an open source static site generator that is powered by Go - which makes it insanely fast to compile and run. What is a static site? Well it&rsquo;s the most basic website of all, pure HTML. Hugo as a framework allows you to use templates to generate HTML files quickly. Let&rsquo;s go over the pros and cons:
+PROS It allows for variables in the template (using Hugo&rsquo;s own templating engine based on Go) Highly customizable templates and styles At its core - it&rsquo;s just HTML, with batteries Fairly easy to learn Minimization comes included CONS Not popular outside the US Not non-tech friendly - there are no dashboards or WYSIWYG editors for you to make blog posts Getting Started Here are the download links: https://gohugo.">
+
+<link rel="apple-touch-icon" sizes="180x180" href='/apple-touch-icon.png'>
+<link rel="icon" type="image/png" sizes="32x32" href='/favicon-32x32.png'>
+<link rel="icon" type="image/png" sizes="16x16" href='/favicon-16x16.png'>
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href='/safari-pinned-tab.svg' color="#46257b">
+<meta name="apple-mobile-web-app-title" content="TWST Events">
+<meta name="application-name" content="TWST Events">
+<meta name="msapplication-TileColor" content="#46257b">
+<meta name="theme-color" content="#46257b">
+
+<meta property="og:title" content="Hugo 101">
+<meta property="og:site_name" content="Nasi Lemak &amp; Piirakka">
+<meta property="og:description" content="" />
+<meta property="og:image" content="/images/logos/brand.png">
+<meta property="og:url" content="https://twstevents.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@twstevents">
+
+
+
+
+  <meta name="robots" content="noindex, nofollow">
+
+
+
+<script defer src="http://localhost:1313/js/uikit.min.js"></script>
+<script defer src="http://localhost:1313/js/uikit-icons.min.js"></script>
+
+<link rel="stylesheet" href="http://localhost:1313/css/uikit.min.css">
+
+
+<link rel="stylesheet" href="http://localhost:1313/css/main.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Hugo 101</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-05-04T15:50:56+03:00">May 4, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Hugo is an open source static site generator that is powered by Go - which makes it insanely fast to compile and run.
+What is a static site? Well it&rsquo;s the most basic website of all, pure HTML. Hugo as a framework allows you to use templates to generate HTML files quickly.
+Let&rsquo;s go over the pros and cons:</p>
+<h5 id="pros">PROS</h5>
+<ul>
+<li>It allows for variables in the template (using Hugo&rsquo;s own templating engine based on Go)</li>
+<li>Highly customizable templates and styles</li>
+<li>At its core - it&rsquo;s just HTML, with batteries</li>
+<li>Fairly easy to learn</li>
+<li>Minimization comes included</li>
+</ul>
+<h5 id="cons">CONS</h5>
+<ul>
+<li>Not popular outside the US</li>
+<li>Not non-tech friendly - there are no dashboards or WYSIWYG editors for you to make blog posts</li>
+</ul>
+<p>Getting Started
+Here are the download links: <a href="https://gohugo.io/installation/">https://gohugo.io/installation/</a>
+To get started, hugo generates a very basic site</p>
+<pre tabindex="0"><code>$ hugo new site quickstart
+$ cd quickstart
+$ hugo serve
+</code></pre><pre tabindex="0"><code>├── archetypes
+│   └── default.md  &lt;--- preconfigured files 
+├── assets          &lt;--- CSS / Javascript
+├── config.toml     &lt;--- site-wide variables
+├── content         &lt;--- your pages
+├── data            &lt;--- similar to config, but for content
+├── layouts         &lt;--- default/custom layouts
+├── public          &lt;--- build folder
+├── static          &lt;--- where your image assets go
+└── themes
+</code></pre><p>Adding CSS and JavascriptThe folder <code>/assets</code> is for CSS and Javascript you want to upload to the site, since it uses Hugo Pipes.</p>
+<blockquote>
+<p>Stores all the files which need be processed by Hugo Pipes. Only the files whose .Permalink or .RelPermalink are used will be published to the public directory.
+<!-- raw HTML omitted --><a href="https://gohugo.io/getting-started/directory-structure/">https://gohugo.io/getting-started/directory-structure/</a><!-- raw HTML omitted --></p>
+</blockquote>
+<p>I like to put my SCSS into a folder, and import it in the <code>/layouts/baseof/_default.html</code> file.</p>
+<p>This will mean that every page will include the whole CSS file. If you&rsquo;d like to have something more specific to each page, then add the CSS to the HTML for the specific page you want. We&rsquo;ll get into custom pages later.</p>
+<p><!-- raw HTML omitted -->Folder structure<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>assets
+├── js
+│   └── index.js
+└── scss
+    ├── _single.scss
+    └── main.scss
+</code></pre><p><!-- raw HTML omitted -->main.scss<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>@import &#39;_single.scss&#39;
+</code></pre><p><em>single.scss is just a name. But it is convention to add &ldquo;</em>&rdquo; prefix for CSS partials and import them in the main.</p>
+<p>As a cleanliness rule, wrap your CSS partials with a wrapper class so that it doesn&rsquo;t leak outside the intended pages. Especially since all the pages are using the same stylesheet. <!-- raw HTML omitted -->_default.html<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>&lt;!--
+    JAVASCRIPT IMPORT
+--&gt;
+{{ $js := resources.Get &#34;js/index.js&#34; }}
+{{ $script := $js | resources.Minify }}
+&lt;script defer src=&#34;{{ $script.Permalink | relURL }}&#34;&gt;&lt;/script&gt;
+
+&lt;!--
+    CSS IMPORT 
+--&gt;
+{{ $options := (dict &#34;targetPath&#34; &#34;/css/main.min.css&#34; &#34;outputStyle&#34; &#34;compressed&#34; &#34;enableSourceMap&#34; true) }}
+{{ $style := resources.Get &#34;scss/main.scss&#34; | resources.ToCSS $options }}
+&lt;link rel=&#34;stylesheet&#34; href=&#34;{{ $style.Permalink | relURL }}&#34;&gt;
+</code></pre><p>Note the <code>resources.Minify</code> and <code>resources.ToCSS</code> that is included. That is the magic, that is what helps minify our Javascript and CSS into production ready code. Hugo has a few more in-built <a href="http://https://gohugo.io/hugo-pipes/">pipes</a> that you can play with.</p>
+<p>Index.html and Content Pages<code>/layouts/index.html</code> is a special page that is loaded when we enter the website on <code>http://domain.com/</code> i.e. the landing page. Although you can also move index.html to root of <code>/content</code> folder, <em>however</em> you won&rsquo;t be able to use partials outside of <code>/layouts</code>.</p>
+<p>The rest of the pages are loaded from <code>/content</code></p>
+<pre tabindex="0"><code>└── content
+    └── about
+    |   └── index.html      // &lt;- https://example.com/about/
+    ├── posts
+    |   ├── firstpost.html  // &lt;- https://example.com/posts/firstpost/
+    |   ├── happy
+    |   |   └── ness.html   // &lt;- https://example.com/posts/happy/ness/
+    |   └── secondpost.html // &lt;- https://example.com/posts/secondpost/
+    └── quote
+        ├── first.html      // &lt;- https://example.com/quote/first/
+        └── second.html     // &lt;- https://example.com/quote/second/
+</code></pre><h1 id="defaults">Defaults</h1>
+<p><!-- raw HTML omitted -->/layouts/_default/baseof.html<!-- raw HTML omitted -->
+is the basic template for every page, and it usually contains the <code>&lt;head&gt;</code> and <code>&lt;style&gt;</code> declarations.</p>
+<pre tabindex="0"><code>&lt;main&gt;
+    {{ block &#34;main&#34; . }}{{ end }}
+&lt;/main&gt;
+</code></pre><p><code>{{ block &quot;main&quot; . }}</code>
+is where your other pages slot in. In other pages you&rsquo;ll likely see a <code>{{ define &quot;main&quot; }}</code>.</p>
+<p><!-- raw HTML omitted -->/layouts/_default/single.html<!-- raw HTML omitted -->
+is the template for html pages in <code>/content/**/*.html</code>.</p>
+<p><!-- raw HTML omitted -->/layouts/partials<!-- raw HTML omitted -->
+contains single partial HTML that can be inserted into other layout pages.</p>
+<h1 id="templating-html">Templating HTML</h1>
+<p>Templating uses something akin to Go templating handlebars. There are several functions you can use, but most common will be:<!-- raw HTML omitted -->Partials<!-- raw HTML omitted -->
+These are used to send in HTML partials you&rsquo;ve made from /layouts/partials/&lt;filename&gt;.html. A dictionary (object) of values can be sent into a partial by using the <code>dict</code> function</p>
+<pre tabindex="0"><code>{{ partial &#34;&lt;filename&gt;&#34; (dict &#34;context&#34; . &lt;key&gt; &lt;value&gt; &lt;key&gt; &lt;value&gt;) }}
+</code></pre><pre tabindex="0"><code>{{ partial &#34;contact-button&#34; (dict &#34;context&#34; . 
+    &#34;text&#34; &#34;Request A Demo&#34; 
+    &#34;color&#34; &#34;#ffee33&#34;) 
+}}
+</code></pre><p><!-- raw HTML omitted -->Range<!-- raw HTML omitted -->
+A for-each loop. Ranges require an <code>{{ end }}</code>.</p>
+<pre tabindex="0"><code>{{ range (where .Site.RegularPages &#34;Section&#34; &#34;blog&#34;) }}
+{{ .Title }}
+{{ end }}
+</code></pre><p><!-- raw HTML omitted -->If<!-- raw HTML omitted -->
+If blocks. Also requires an end.</p>
+<pre tabindex="0"><code>{{ if eq $variable true }}
+    &lt;p&gt;This will show if true
+{{ end }}
+</code></pre><p>FrontmatterFrontmatter such as titles and section are listed on the top of the html page within <code>/content</code>. Certain frontmatter params are used for structuring the footer and navbar such as <code>section</code> and <code>subsection</code>.</p>
+<p>You can even use HTML in your Frontmatter, as long as you import it correctly in your template.</p>
+<p><!-- raw HTML omitted -->layouts/software/single.html<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>---
+header:
+    title: Software Development
+    subtitle: The cake is a lie
+bgImageUrl: images/content/people.png
+text: &#34;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, placeat ipsa ipsum quaerat optio labore impedit. Non commodi sit nihil magnam temporibus magni laboriosam, velit tempore amet iure ut mollitia.&#34;
+longDesc: 
+    &lt;ul&gt;
+        &lt;li&gt;Why you can use HTML&lt;/li&gt;
+        &lt;li&gt;Different ways to use Hugo&lt;/li&gt;
+        &lt;li&gt;Quality over Quantity&lt;/li&gt;
+    &lt;/ul&gt;
+imgs:
+    - imgUrl: images/content/meeting-rules.jpg
+    - imgUrl: images/content/profile-search.jpg
+    - imgUrl: images/content/reporting.png
+---
+</code></pre><p>Using HTML from FrontmatterBy piping into safeHTML, we can use HTML in our frontmatter</p>
+<pre tabindex="0"><code>{{ if .Params.longDesc }}&lt;p&gt;{{ .Params.longDesc | safeHTML }}&lt;/p&gt;{{ end }}
+</code></pre><p>Global VariablesAny variable that wish to be saved globally can be set in <code>config.yaml</code> under the <code>params</code> key.</p>
+<p>You can access the parameter in html using <code>{{ $.Site.Params.[parameter key]}}</code>.</p>
+<p><!-- raw HTML omitted -->config.yaml<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>params:
+    gtagKey: U-123456
+</code></pre><p><!-- raw HTML omitted -->_baseof.html<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>&lt;script async src=&#34;https://www.googletagmanager.com/gtag/js?id={{ $.Site.Params.gtagKey }}&#34;&gt;&lt;/script&gt;
+</code></pre><p>You can access data files via <code>$.Site.Data.&lt;filename&gt;</code></p>
+<p><!-- raw HTML omitted -->/data/testimonials.yaml<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>- 
+    icon: la-handshake
+    text: lorem ipsum
+    position: CEO
+    company: Investment Bank
+- 
+    icon: la-user-tie
+    text: lorem ipsum
+    position: Director
+    company: Chase Bank
+</code></pre><p><!-- raw HTML omitted -->/layout/partials/testimonials-section.html<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>{{ range $.Site.Data.testimonials }}   
+&lt;li&gt;
+    &lt;img class=&#34;la {{ .icon }}&#34;/&gt; &lt;h6&gt;{{ .position }} | {{ .company }}&lt;/h6&gt;
+    &lt;h4&gt;&#34;{{ .text }}&#34;&lt;/h4&gt;
+&lt;/li&gt;
+</code></pre><hr>
+<p>Conclusions
+Hugo, is easy to learn, quick to develop, flexible enough for customization, yet structured enough for maintenance.
+I like it a lot and would recommend it for any static sites that does not require an editor.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+  </body>
+</html>

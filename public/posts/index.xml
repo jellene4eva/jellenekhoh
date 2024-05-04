@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Nasi Lemak &amp; Piirakka</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Nasi Lemak &amp; Piirakka</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 May 2024 20:24:46 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Round the forest we run</title>
+      <link>http://localhost:1313/posts/flora-fauna/</link>
+      <pubDate>Sat, 04 May 2024 20:24:46 +0300</pubDate>
+      <guid>http://localhost:1313/posts/flora-fauna/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Plotly.js Charts for Dashboards</title>
+      <link>http://localhost:1313/posts/plotlyjs-charts-for-dashboards/</link>
+      <pubDate>Sat, 04 May 2024 18:15:46 +0300</pubDate>
+      <guid>http://localhost:1313/posts/plotlyjs-charts-for-dashboards/</guid>
+      <description>Today we&amp;rsquo;re going to look at a really powerful charting library that is really easy to use and set up. Plotly Open Source Graphing Library supports several programming languages, including Python, Matlab, R, and most importantly Javascript!&#xA;I&amp;rsquo;ve had to build a few dashboards for IoT companies, and charts are definitely one of the biggest elements in the view. Need I say more about the significance of charts to business related reporting such as sales, network monitoring, stocks etc.</description>
+    </item>
+    <item>
+      <title>Docker Alpine &#43; ExpressJS &#43; Angular</title>
+      <link>http://localhost:1313/posts/docker-angular/</link>
+      <pubDate>Sat, 04 May 2024 18:13:22 +0300</pubDate>
+      <guid>http://localhost:1313/posts/docker-angular/</guid>
+      <description>This was for a project that I did recently that required a reporting dashboard app to be served from a docker image, and would live inside small low-powered linux devices. The app had to fulfill these criterias: It needs to be replicated quickly for many devices It needs to be small, there isn&amp;rsquo;t a lot of space It needs to be able to connect to MariaDB database in the localhost network Certain fields are configurable from a JSON database that is exposed outside the container.</description>
+    </item>
+    <item>
+      <title>Hugo 101</title>
+      <link>http://localhost:1313/posts/hugo-101/</link>
+      <pubDate>Sat, 04 May 2024 15:50:56 +0300</pubDate>
+      <guid>http://localhost:1313/posts/hugo-101/</guid>
+      <description>Hugo is an open source static site generator that is powered by Go - which makes it insanely fast to compile and run. What is a static site? Well it&amp;rsquo;s the most basic website of all, pure HTML. Hugo as a framework allows you to use templates to generate HTML files quickly. Let&amp;rsquo;s go over the pros and cons:&#xA;PROS It allows for variables in the template (using Hugo&amp;rsquo;s own templating engine based on Go) Highly customizable templates and styles At its core - it&amp;rsquo;s just HTML, with batteries Fairly easy to learn Minimization comes included CONS Not popular outside the US Not non-tech friendly - there are no dashboards or WYSIWYG editors for you to make blog posts Getting Started Here are the download links: https://gohugo.</description>
+    </item>
+  </channel>
+</rss>

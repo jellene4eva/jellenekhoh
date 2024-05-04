@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+html, body {
+    font-family: var(--global-font-family);
+    a {
+        color: var(--global-color-primary);
+        &:hover, &:focus {
+            color: var(--global-color-secondary); // careful of <a class="uk-button> buttons
+            text-decoration: none;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--global-title-font);
+        font-weight: 500;
+    }
+}
+.h1, h1 {
+    font-size: 2em;
+}
+.h2, h2 {
+    font-size: 1.5em;
+}
+.h3, h3 {
+    font-size: 1.17em;
+}
+.h4, h4 {
+    font-size: 1em;
+}
+.h5, h5 {
+    font-size: .83em;
+}
+.h6, h6 {
+    font-size: .67em;
+}
+
+.text-title {
+    font-family: var(--global-title-font);
+    font-weight: 500;
+}
+
+.section-title {
+    font-family: var(--global-title-font);
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+p {
+    font-weight: 500;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+.feature-detail-list em {
+    color: #666;
+    font-weight: 400;
+    font-style: normal;
+}

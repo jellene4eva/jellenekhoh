@@ -1,0 +1,39 @@
+
+
+:root {
+    --global-color-primary: #333;
+    --global-color-primary-light: #f8f7fc;
+    --global-color-primary-light2: #ece9f2;
+    --global-color-secondary: #5a8a92;
+    --global-color-secondary-light: #f4f7cc;
+    --global-color-white: #fff;
+    --global-color-light: #f0f0f0;
+    --global-color-grey: #4f4f4f;
+    --global-color-meta: #999;
+    --global-color-text: #666;
+    --global-color-black: #000000;
+    --global-color-success: #13d876;
+    --global-color-success-dark: #0ca056;
+    --global-color-danger: #ff6e5e;
+    --global-title-font: 'Lato';
+    --global-font-family: 'Lato', sans-serif;
+    --navbar-height: 80px;
+    --border-radius: 5px;
+}
+
+main {
+    background-color: var(--global-color-white);
+}
+
+.vh-100 {
+  @include breakpoint-m {
+    height: 100vh;
+  }
+}
+
+.summary {
+  width: 40vw;
+  @include breakpoint-max-m {
+    width: 100%;
+  }
+}

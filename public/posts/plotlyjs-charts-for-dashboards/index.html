@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Plotly.js Charts for Dashboards | Nasi Lemak &amp; Piirakka</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Today we&rsquo;re going to look at a really powerful charting library that is really easy to use and set up. Plotly Open Source Graphing Library supports several programming languages, including Python, Matlab, R, and most importantly Javascript!
+I&rsquo;ve had to build a few dashboards for IoT companies, and charts are definitely one of the biggest elements in the view. Need I say more about the significance of charts to business related reporting such as sales, network monitoring, stocks etc.">
+
+<link rel="apple-touch-icon" sizes="180x180" href='/apple-touch-icon.png'>
+<link rel="icon" type="image/png" sizes="32x32" href='/favicon-32x32.png'>
+<link rel="icon" type="image/png" sizes="16x16" href='/favicon-16x16.png'>
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href='/safari-pinned-tab.svg' color="#46257b">
+<meta name="apple-mobile-web-app-title" content="TWST Events">
+<meta name="application-name" content="TWST Events">
+<meta name="msapplication-TileColor" content="#46257b">
+<meta name="theme-color" content="#46257b">
+
+<meta property="og:title" content="Plotly.js Charts for Dashboards">
+<meta property="og:site_name" content="Nasi Lemak &amp; Piirakka">
+<meta property="og:description" content="" />
+<meta property="og:image" content="/images/logos/brand.png">
+<meta property="og:url" content="https://twstevents.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@twstevents">
+
+
+
+
+  <meta name="robots" content="noindex, nofollow">
+
+
+
+<script defer src="http://localhost:1313/js/uikit.min.js"></script>
+<script defer src="http://localhost:1313/js/uikit-icons.min.js"></script>
+
+<link rel="stylesheet" href="http://localhost:1313/css/uikit.min.css">
+
+
+<link rel="stylesheet" href="http://localhost:1313/css/main.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Plotly.js Charts for Dashboards</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-05-04T18:15:46+03:00">May 4, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Today we&rsquo;re going to look at a really powerful charting library that is really easy to use and set up. Plotly Open Source Graphing Library supports several programming languages, including Python, Matlab, R, and most importantly Javascript!</p>
+<p>I&rsquo;ve had to build a few dashboards for IoT companies, and charts are definitely one of the biggest elements in the view. Need I say more about the significance of charts to business related reporting such as sales, network monitoring, stocks etc.</p>
+<p>Plotly offers many kinds of charts and maps, but the most common ones I use are:</p>
+<ul>
+<li>Line charts</li>
+<li>Bar charts</li>
+<li>Step charts</li>
+</ul>
+<p>Below I&rsquo;ll walk through the basics on how I use plotly.js in an actual project. &mdash;</p>
+<p>Installation
+Very similar to other charting libraries, you can get them via CDN or npm packages. More detailed guide is in their github page.
+CDN
+Insert the script in the head of index.html```prettyprint lang-html</p>
+<!-- raw HTML omitted -->
+<p>NPM
+To install with npm simply do ```prettyprint lang-bash
+$ npm install plotly.js-dist</p>
+<pre tabindex="0"><code>
+
+Note that it is plotly.js-dist and not plotly.js
+Import
+Now to import it into your project do```prettyprint lang-typescript
+import Plotly from &#39;plotly.js-dist&#39;
+
+...
+
+Plotly.newPlot(&#39;div-id&#39;, data, layout, options);
+</code></pre><p>In the html you&rsquo;ll need a div with the id you want to point to. ```prettyprint lang-html</p>
+<!-- raw HTML omitted -->
+<p>Really easy stuff! &mdash;</p>
+<p>Plotting a basic chart
+Now let do a basic line chart.Basic plotly.js line chart</p>
+<p>The javascript for this small chart is simple, we want to break down some of the important flags you need. ```prettyprint lang-javascript
+var trace1 = {
+name: &lsquo;Energy consumption&rsquo;,
+x: [&lsquo;1-3-2019&rsquo;, &lsquo;2-3-2019&rsquo;, &lsquo;3-3-2019&rsquo;, &lsquo;4-3-2019&rsquo;, &lsquo;5-3-2019&rsquo;, &lsquo;6-3-2019&rsquo;, &lsquo;7-3-2019&rsquo;],
+y: [10, 15, 13, 17, 19, 10, 11, 13],
+type: &rsquo;line&rsquo;,
+line: {
+color: &lsquo;#45B5C6&rsquo;
+}
+};</p>
+<p>var trace2 = {
+name: &lsquo;Cold water consumption&rsquo;,
+x: [&lsquo;1-3-2019&rsquo;, &lsquo;2-3-2019&rsquo;, &lsquo;3-3-2019&rsquo;, &lsquo;4-3-2019&rsquo;, &lsquo;5-3-2019&rsquo;, &lsquo;6-3-2019&rsquo;, &lsquo;7-3-2019&rsquo;],
+y: [16, 5, 11, 9, 0, 4, 0],
+type: &rsquo;line&rsquo;
+};</p>
+<p>var data = [trace1, trace2];</p>
+<p>layout = {
+showlegend: false
+}</p>
+<p>Plotly.newPlot(&lsquo;myDiv&rsquo;, data, layout, {
+responsive: true,
+displaylogo: false
+});</p>
+<pre tabindex="0"><code>
+
+trace
+Each series in the chart is referred to as a trace. The xaxis is usually the time range, and the yaxis is the value. Here, I purposely use string for my xaxis because I want to be able to parse it into different localized format, e.g. Feb 2, 2019 in US, vs 2.2.2019 in Finland. Or even into quarters e.g. Q1/2018.  @note: Plotly has locale config, but I wanted more control.
+
+
+If you treat each xaxis item as a category, then everything will work fine. If xaxis is an array of `Date` items, Plotly will automatically parse it into a timeseries chart.
+You can specify the line color of the each trace. If you leave it out, Plotly will provide a color based on the index. To change the color, add an entry ```prettyprint lang-json 
+line: { 
+    color: &#39;#fff&#39; 
+}
+</code></pre><p>Notice that data requires an Array of object. This is a little bit different from other charting libraries like Google Charts or Highcharts.
+layout
+Layout is the general settings for Plotly. Here we&rsquo;re hiding the legends by adding this in the object. ```prettyprint lang-json
+showlegend: false</p>
+<pre tabindex="0"><code>
+
+Legends allow you to show / hide each trace, which is pretty handy, but I&#39;ve decided to turn it off. In my app, I have other buttons outside the chart for me to control showing and hiding of each data, so I don&#39;t need the legends. 
+Other configurations that I usually use for layout are font, autosize, margin, to make the chart fit your container. 
+Full documentation here: https://plot.ly/javascript/reference/#layout
+configuration
+These configurations are extra options for other functions around the chart, such as:
+Allowing Scroll and Zoom
+Modebar show / hide
+Useful ones for me are ```prettyprint lang-json 
+{
+    responsive: true, 
+    displaylogo: false
+}
+</code></pre><p>This should be pretty self explanatory - the configuration allows the chart to change width according to the window, and also remove Plotly&rsquo;s logo from the modebar.
+Full documentation here: <a href="https://plot.ly/javascript/configuration-options/---">https://plot.ly/javascript/configuration-options/---</a></p>
+<p>Multiple axes
+We now explore how to use different chart types in the same plot. ```prettyprint lang-javascript
+var trace1 = {
+name: &ldquo;Energy consumption&rdquo;,
+x: [
+&ldquo;1.3.2019 00:00&rdquo;,
+&ldquo;1.3.2019 03:00&rdquo;,
+&ldquo;1.3.2019 06:00&rdquo;,
+&ldquo;1.3.2019 09:00&rdquo;,
+&ldquo;1.3.2019 12:00&rdquo;,
+&ldquo;1.3.2019 15:00&rdquo;,
+&ldquo;1.3.2019 18:00&rdquo;,
+&ldquo;1.3.2019 21:00&rdquo;
+],
+y: [20, 50, 92, 82, 14, 20, 50, 62],
+text: [&lsquo;20 kw/H&rsquo;, &lsquo;50 kw/H&rsquo;, &lsquo;92 kw/H&rsquo;, &lsquo;82 kw/H&rsquo;, &lsquo;14 kw/H&rsquo;, &lsquo;20 kw/H&rsquo;, &lsquo;50 kw/H&rsquo;, &lsquo;62 kw/H&rsquo;],
+hoverinfo: &lsquo;x+text+name&rsquo;,
+type: &ldquo;bar&rdquo;,
+marker: {
+color: &lsquo;#270657&rsquo;
+}
+};</p>
+<p>var trace2 = {
+name: &ldquo;Air pressure&rdquo;,
+x: [
+&ldquo;1.3.2019 00:00&rdquo;,
+&ldquo;1.3.2019 03:00&rdquo;,
+&ldquo;1.3.2019 06:00&rdquo;,
+&ldquo;1.3.2019 09:00&rdquo;,
+&ldquo;1.3.2019 12:00&rdquo;,
+&ldquo;1.3.2019 15:00&rdquo;,
+&ldquo;1.3.2019 18:00&rdquo;,
+&ldquo;1.3.2019 21:00&rdquo;
+],
+y: [81.32, 72.1, 121.41, 71.31, 40.98, 30.96, 51.2, 71.92],
+text: [&lsquo;81.32 Pa&rsquo;, &lsquo;72.1 Pa&rsquo;, &lsquo;121.41 Pa&rsquo;, &lsquo;71.31 Pa&rsquo;, &lsquo;40.98 Pa&rsquo;, &lsquo;30.96 Pa&rsquo;, &lsquo;51.2 Pa&rsquo;, &lsquo;71.92 Pa&rsquo;],
+hoverinfo: &lsquo;x+text+name&rsquo;,
+type: &ldquo;line&rdquo;,
+};</p>
+<p>var trace3 = {
+name: &ldquo;Lights&rdquo;,
+x: [
+&ldquo;1.3.2019 00:00&rdquo;,
+&ldquo;1.3.2019 03:00&rdquo;,
+&ldquo;1.3.2019 06:00&rdquo;,
+&ldquo;1.3.2019 09:00&rdquo;,
+&ldquo;1.3.2019 12:00&rdquo;,
+&ldquo;1.3.2019 15:00&rdquo;,
+&ldquo;1.3.2019 18:00&rdquo;,
+&ldquo;1.3.2019 21:00&rdquo;
+],
+y: [&ldquo;off&rdquo;, &ldquo;on&rdquo;, &ldquo;on&rdquo;, &ldquo;on&rdquo;, &ldquo;off&rdquo;, &ldquo;off&rdquo;, &ldquo;on&rdquo;, &ldquo;on&rdquo;],
+type: &ldquo;line&rdquo;,
+line: {
+shape: &ldquo;hv&rdquo;,
+color: &lsquo;#45b5c6&rsquo;
+},
+yaxis: &ldquo;y2&rdquo;
+};</p>
+<p>var data = [trace1, trace2, trace3];</p>
+<p>layout = {
+showlegend: false,
+yaxis2: {
+type: &ldquo;category&rdquo;,
+side: &ldquo;right&rdquo;,
+overlaying: &ldquo;y&rdquo;
+}
+};</p>
+<p>Plotly.newPlot(&ldquo;myDiv&rdquo;, data, layout, {
+responsive: true,
+displaylogo: false
+});</p>
+<pre tabindex="0"><code>
+
+
+Chart types
+Here we have 3 basic chart types - line, step, and bar charts. You can configure them for each trace ```prettyprint lang-javascript
+
+type: &#34;line&#34;
+
+...
+
+type: &#34;bar&#34;
+
+...
+
+// step chart
+type: &#34;line&#34;,
+line: {
+    shape: &#34;hv&#34;,
+},
+</code></pre><p>also notice that by setting the second yaxis2, we&rsquo;re able set a second yaxis on the right side of the chart for text based categories. ```prettyprint lang-javascript
+{
+&hellip;
+text: [&lsquo;81.32 Pa&rsquo;, &lsquo;72.1 Pa&rsquo;, &lsquo;121.41 Pa&rsquo;, &lsquo;71.31 Pa&rsquo;, &lsquo;40.98 Pa&rsquo;, &lsquo;30.96 Pa&rsquo;, &lsquo;51.2 Pa&rsquo;, &lsquo;71.92 Pa&rsquo;],
+hoverinfo: &lsquo;x+text+name&rsquo;,
+&hellip;
+}</p>
+<pre tabindex="0"><code>
+
+Custom text can be used to insert unit to the values. hoverinfo allows you to customize what you want to show when the mouse is hovering over the value. If we use the text instead of y then we can have the unit shown. ---
+
+
+Putting it togetherDemo iot dashboard
+
+
+Here is a real life example of an iot dashboard for showing value changes of live sensor data. 
+Hopefully with this you can use Plotly in your future projects with ease.
+View more examples of plotly here in the feed: https://plot.ly/feed/#/
+Other charting libraries
+Highcharts
+D3.js 
+Google Charts
+Chart.js
+</code></pre><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+  </body>
+</html>

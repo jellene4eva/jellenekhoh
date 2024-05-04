@@ -1,0 +1,24 @@
+{{ $featured_image := .Params.cover }}
+<article class="">
+  <div class="uk-padding-large summary">
+    <div class="uk-flex uk-flex-column">
+      <div class="">
+        <h1 class="">
+          <a href="{{.RelPermalink}}" class="">
+            {{ .Title }}
+            </a>
+        </h1>
+      {{ if $featured_image }}
+        <div class="">
+          <a href="{{.RelPermalink}}" class="">
+            <img data-src="{{ $featured_image }}" uk-img class="uk-width-large@m uk-width-1-1" alt="image from {{ .Title }}">
+          </a>
+        </div>
+      {{ end }}
+        <div class="">
+          {{ .Summary }}
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
