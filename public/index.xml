@@ -23,6 +23,13 @@
       <description>Today we&amp;rsquo;re going to look at a really powerful charting library that is really easy to use and set up. Plotly Open Source Graphing Library supports several programming languages, including Python, Matlab, R, and most importantly Javascript!&#xA;I&amp;rsquo;ve had to build a few dashboards for IoT companies, and charts are definitely one of the biggest elements in the view. Need I say more about the significance of charts to business related reporting such as sales, network monitoring, stocks etc.</description>
     </item>
     <item>
+      <title>About Me</title>
+      <link>http://localhost:1313/page/about/</link>
+      <pubDate>Sat, 04 May 2024 18:13:22 +0300</pubDate>
+      <guid>http://localhost:1313/page/about/</guid>
+      <description>Nosy lil&amp;rsquo; fella aren&amp;rsquo;t ya?&#xA;I’m Jellene Khoh. Software developer, race driver wannabe, chocolate monster.&#xA;I had the opportunity to work in a game development company once, to make my love of art and music come to life in code. But that dream was crushed by intense stress of crunch time and exploitative work environment.&#xA;Now I try to do nice things with tech, clean up ugly websites, make life a little better for netizens everywhere.</description>
+    </item>
+    <item>
       <title>Docker Alpine &#43; ExpressJS &#43; Angular</title>
       <link>http://localhost:1313/posts/docker-angular/</link>
       <pubDate>Sat, 04 May 2024 18:13:22 +0300</pubDate>

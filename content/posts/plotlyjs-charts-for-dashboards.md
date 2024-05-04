@@ -28,14 +28,16 @@ Insert the script in the head of index.html```prettyprint lang-html
 
 
 NPM
-To install with npm simply do ```prettyprint lang-bash
+To install with npm simply do 
+```
 $ npm install plotly.js-dist
 ```
 
 
 Note that it is plotly.js-dist and not plotly.js
 Import
-Now to import it into your project do```prettyprint lang-typescript
+Now to import it into your project do
+```
 import Plotly from 'plotly.js-dist'
 
 ...
@@ -44,7 +46,8 @@ Plotly.newPlot('div-id', data, layout, options);
 ```
 
 
-In the html you'll need a div with the id you want to point to. ```prettyprint lang-html
+In the html you'll need a div with the id you want to point to. 
+```
 <div id="div-id"></div>
 ```
 
@@ -56,7 +59,8 @@ Plotting a basic chart
 Now let do a basic line chart.Basic plotly.js line chart
 
 
-The javascript for this small chart is simple, we want to break down some of the important flags you need. ```prettyprint lang-javascript
+The javascript for this small chart is simple, we want to break down some of the important flags you need. 
+```
 var trace1 = {
   name: 'Energy consumption',
   x: ['1-3-2019', '2-3-2019', '3-3-2019', '4-3-2019', '5-3-2019', '6-3-2019', '7-3-2019'],
@@ -92,7 +96,8 @@ Each series in the chart is referred to as a trace. The xaxis is usually the tim
 
 
 If you treat each xaxis item as a category, then everything will work fine. If xaxis is an array of `Date` items, Plotly will automatically parse it into a timeseries chart.
-You can specify the line color of the each trace. If you leave it out, Plotly will provide a color based on the index. To change the color, add an entry ```prettyprint lang-json 
+You can specify the line color of the each trace. If you leave it out, Plotly will provide a color based on the index. To change the color, add an entry 
+```
 line: { 
     color: '#fff' 
 }
@@ -101,7 +106,8 @@ line: {
 
 Notice that data requires an Array of object. This is a little bit different from other charting libraries like Google Charts or Highcharts.
 layout
-Layout is the general settings for Plotly. Here we're hiding the legends by adding this in the object. ```prettyprint lang-json 
+Layout is the general settings for Plotly. Here we're hiding the legends by adding this in the object. 
+```
 showlegend: false
 ```
 
@@ -113,7 +119,8 @@ configuration
 These configurations are extra options for other functions around the chart, such as:
 Allowing Scroll and Zoom
 Modebar show / hide
-Useful ones for me are ```prettyprint lang-json 
+Useful ones for me are 
+```
 {
     responsive: true, 
     displaylogo: false
@@ -127,7 +134,8 @@ Full documentation here: https://plot.ly/javascript/configuration-options/---
 
 
 Multiple axes
-We now explore how to use different chart types in the same plot. ```prettyprint lang-javascript
+We now explore how to use different chart types in the same plot. 
+```
 var trace1 = {
   name: "Energy consumption",
   x: [
@@ -208,7 +216,8 @@ Plotly.newPlot("myDiv", data, layout, {
 
 
 Chart types
-Here we have 3 basic chart types - line, step, and bar charts. You can configure them for each trace ```prettyprint lang-javascript
+Here we have 3 basic chart types - line, step, and bar charts. You can configure them for each trace 
+```
 
 type: "line"
 
@@ -226,7 +235,8 @@ line: {
 ```
 
 
-also notice that by setting the second yaxis2, we're able set a second yaxis on the right side of the chart for text based categories. ```prettyprint lang-javascript
+also notice that by setting the second yaxis2, we're able set a second yaxis on the right side of the chart for text based categories. 
+```
 {
     ...
     text: ['81.32 Pa', '72.1 Pa', '121.41 Pa', '71.31 Pa', '40.98 Pa', '30.96 Pa', '51.2 Pa', '71.92 Pa'],
@@ -245,7 +255,8 @@ Putting it togetherDemo iot dashboard
 Here is a real life example of an iot dashboard for showing value changes of live sensor data. 
 Hopefully with this you can use Plotly in your future projects with ease.
 View more examples of plotly here in the feed: https://plot.ly/feed/#/
-Other charting libraries
+
+# Other charting libraries
 Highcharts
 D3.js 
 Google Charts

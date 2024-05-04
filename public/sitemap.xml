@@ -3,10 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-05-04T20:24:46+03:00</lastmod>
+    <lastmod>2024-05-04T20:43:06+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-05-04T20:24:46+03:00</lastmod>
+    <lastmod>2024-05-04T20:43:06+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/flora-fauna/</loc>
     <lastmod>2024-05-04T20:24:46+03:00</lastmod>
@@ -20,7 +20,11 @@
     <loc>http://localhost:1313/posts/hugo-101/</loc>
     <lastmod>2024-05-04T15:50:56+03:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/page/about/</loc>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/page/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
   </url>

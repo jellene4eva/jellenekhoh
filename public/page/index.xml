@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Nasi Lemak &amp; Piirakka</title>
+    <link>http://localhost:1313/page/</link>
+    <description>Recent content in Pages on Nasi Lemak &amp; Piirakka</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 May 2024 18:13:22 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>http://localhost:1313/page/about/</link>
+      <pubDate>Sat, 04 May 2024 18:13:22 +0300</pubDate>
+      <guid>http://localhost:1313/page/about/</guid>
+      <description>Nosy lil&amp;rsquo; fella aren&amp;rsquo;t ya?&#xA;I’m Jellene Khoh. Software developer, race driver wannabe, chocolate monster.&#xA;I had the opportunity to work in a game development company once, to make my love of art and music come to life in code. But that dream was crushed by intense stress of crunch time and exploitative work environment.&#xA;Now I try to do nice things with tech, clean up ugly websites, make life a little better for netizens everywhere.</description>
+    </item>
+  </channel>
+</rss>
