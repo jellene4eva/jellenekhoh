@@ -35,10 +35,10 @@
 
 
 
-<script defer src="http://localhost:1313/js/uikit.min.js"></script>
-<script defer src="http://localhost:1313/js/uikit-icons.min.js"></script>
+<script defer src="/js/uikit.min.js"></script>
+<script defer src="/js/uikit-icons.min.js"></script>
 
-<link rel="stylesheet" href="http://localhost:1313/css/uikit.min.css">
+<link rel="stylesheet" href="/css/uikit.min.css">
 
 
 <link rel="stylesheet" href="http://localhost:1313/css/main.min.css">
@@ -50,40 +50,27 @@
   <body>
     <main>
       
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked ttu">
-          
-        Posts
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
+<section class="uk-child-width-expand@s" uk-grid>
+  <div class="uk-width-1-3@m">
+    <a href="/">
+      <img data-src="images/logo.png" uk-img class="uk-width-small uk-padding">
+    </a>
   </div>
 
+  <section class="uk-padding-large vh-100 uk-overflow-auto">
+    <header>
+      
+        <img src="/images/docker-angular-cover.jpg">
+      
+      <h1 class="f1 athelas mt3 mb1">
+        Docker Alpine &#43; ExpressJS &#43; Angular
+      </h1>
+      
+      <time class="" datetime="2024-05-04T18:13:22+03:00">May 4, 2024</time>
+      
 
-      <h1 class="f1 athelas mt3 mb1">Docker Alpine &#43; ExpressJS &#43; Angular</h1>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2024-05-04T18:13:22+03:00">May 4, 2024</time>
-      
-
-      
-      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>This was for a project that I did recently that required a reporting dashboard app to be served from a docker image, and would live inside small low-powered linux devices.
+    <div class=""><p>This was for a project that I did recently that required a reporting dashboard app to be served from a docker image, and would live inside small low-powered linux devices.
 The app had to fulfill these criterias:
 It needs to be replicated quickly for many devices
 It needs to be small, there isn&rsquo;t a lot of space
@@ -246,20 +233,10 @@ Regardless, learning docker is exciting. Let me know if there is a better way!<!
 <ul class="pa0">
   
 </ul>
-<div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
+</div>
+  </section>
 
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
+</section>
 
     </main>
   </body>
