@@ -7,7 +7,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>Docker Alpine &#43; ExpressJS &#43; Angular | Nasi Lemak &amp; Piirakka</title>
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="This was for a project that I did recently that required a reporting dashboard app to be served from a docker image, and would live inside small low-powered linux devices. The app had to fulfill these criterias: It needs to be replicated quickly for many devices It needs to be small, there isn&rsquo;t a lot of space It needs to be able to connect to MariaDB database in the localhost network Certain fields are configurable from a JSON database that is exposed outside the container.">
+<meta name="description" content="This was for a project that I did recently that required a reporting dashboard app to be served from a docker image, and would live inside small low-powered linux devices. The app had to fulfill these criterias:
+It needs to be replicated quickly for many devices It needs to be small, there isn&rsquo;t a lot of space It needs to be able to connect to MariaDB database in the localhost network Certain fields are configurable from a JSON database that is exposed outside the container.">
 
 <link rel="apple-touch-icon" sizes="180x180" href='/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='/favicon-32x32.png'>
@@ -53,16 +54,16 @@
 <section class="uk-child-width-expand@s" uk-grid>
   <div class="uk-width-1-3@m">
     <a href="/">
-      <img data-src="images/logo.png" uk-img class="uk-width-small uk-padding">
+      <img data-src="images/logo.png" uk-img class="uk-width-small uk-padding uk-align-right page-logo">
     </a>
   </div>
 
   <section class="uk-padding-large vh-100 uk-overflow-auto">
-    <header>
+    <header class="uk-margin-large-bottom">
       
         <img src="/images/docker-angular-cover.jpg">
       
-      <h1 class="f1 athelas mt3 mb1">
+      <h1 class="cover-title">
         Docker Alpine &#43; ExpressJS &#43; Angular
       </h1>
       
@@ -70,56 +71,57 @@
       
 
     </header>
-    <div class=""><p>This was for a project that I did recently that required a reporting dashboard app to be served from a docker image, and would live inside small low-powered linux devices.
-The app had to fulfill these criterias:
-It needs to be replicated quickly for many devices
-It needs to be small, there isn&rsquo;t a lot of space
-It needs to be able to connect to MariaDB database in the localhost network
-Certain fields are configurable from a JSON database that is exposed outside the container.Docker container containing an ExpressJS app that serves an Angular app</p>
-<p>Docker</p>
+    <div class="">
+      <p>This was for a project that I did recently that required a reporting dashboard app to be served from a docker image, and would live inside small low-powered linux devices.
+The app had to fulfill these criterias:</p>
 <ol>
-<li>It needs to be replicated quickly for many devices
-Docker has been around for a considerable time already, released on 2013, it aims to solve the problem of &ldquo;But it works on my computer&rdquo;.
-A popular use of docker is to pair it with kubernetes to spin up multiple microservices to handle large spikes of concurrent users, and then remove them after the spike to save resources. Each microservice is a tiny server on its own.
-Since docker images are essentially like a backup copy of a tiny server, it will always run the same way without much configuration. Which makes it easy to copy the image to any new device, and spin up a new docker container running the app.
-Architecture Solution
-Use Docker to containerize the app
-ExpressJS serves as a web server for the frontend Angular app.
-ExpressJS uses lowdb to read/write configurations to a JSON file in a folder called data/.
-ExpressJS uses knex.js to query SQL database.
-The final work folder looks something like this – ```
-backend/
-|- src/&hellip;
-|- dist/
-|- server.min.js
-frontend/
-|- src/&hellip;
-|- dist/
-|- public/
-|- main.min.js
-|- vendor.min.js
-|- index.html
-docker/
-|- data/
-|- local-db.json
-|- server.min.js
-|- package.json
-|- public/
-|- main.min.js
-|- vendor.min.js
-|- index.html
-|- Dockerfile
-|- .dockerignore</li>
+<li>It needs to be replicated quickly for many devices</li>
+<li>It needs to be small, there isn&rsquo;t a lot of space</li>
+<li>It needs to be able to connect to MariaDB database in the localhost network</li>
+<li>Certain fields are configurable from a JSON database that is exposed outside the container.Docker container containing an ExpressJS app that serves an Angular app</li>
 </ol>
-<pre tabindex="0"><code>
-
-
-Both frontend and backend is minimized to reduce space. The contents of the the minimized code is copied to the docker folder so that it is easier for me to pack it into a docker image. 
-Express server is serving the public folder (Angular app) under root route. While the rest of the API starts with /api/ prefix. This also means that Angular can use /api when calling http, so it&#39;ll always call something in the same domain. this.http.post(&#39;/api&#39;+ reportUrl);
-
-
-Package.json from the backend is included as well, because I need install the node_modules required for the ExpressJS app. It&#39;s probably possible to somehow bundle the dependencies using Webpack, but I was strapped for time and didn&#39;t investigate further how to do so. ```prettyprint lang-typescript
-import * as FileAsync from &#39;lowdb/adapters/FileAsync&#39;;
+<h1 id="docker">Docker</h1>
+<blockquote>
+<p>It needs to be replicated quickly for many devices</p>
+</blockquote>
+<p>Docker has been around for a considerable time already, released on 2013, it aims to solve the problem of &ldquo;But it works on my computer&rdquo;.</p>
+<p>A popular use of docker is to pair it with kubernetes to spin up multiple microservices to handle large spikes of concurrent users, and then remove them after the spike to save resources. Each microservice is a tiny server on its own.</p>
+<p>Since docker images are essentially like a backup copy of a tiny server, it will always run the same way without much configuration. Which makes it easy to copy the image to any new device, and spin up a new docker container running the app.</p>
+<h1 id="architecture-solution">Architecture Solution</h1>
+<ol>
+<li>Use Docker to containerize the app</li>
+<li>ExpressJS serves as a web server for the frontend Angular app.</li>
+<li>ExpressJS uses lowdb to read/write configurations to a JSON file in a folder called data/.</li>
+<li>ExpressJS uses knex.js to query SQL database.</li>
+</ol>
+<p>The final work folder looks something like this –</p>
+<pre tabindex="0"><code>backend/
+    |- src/...
+    |- dist/
+        |- server.min.js
+frontend/
+    |- src/...
+    |- dist/
+        |- public/
+            |- main.min.js
+            |- vendor.min.js
+            |- index.html
+docker/
+    |- data/
+        |- local-db.json
+    |- server.min.js
+    |- package.json
+    |- public/
+        |- main.min.js
+        |- vendor.min.js
+        |- index.html
+    |- Dockerfile
+    |- .dockerignore
+</code></pre><p>Both frontend and backend is minimized to reduce space. The contents of the the minimized code is copied to the docker folder so that it is easier for me to pack it into a docker image.</p>
+<p>Express server is serving the public folder (Angular app) under root route. While the rest of the API starts with /api/ prefix. This also means that Angular can use /api when calling http, so it&rsquo;ll always call something in the same domain.</p>
+<pre tabindex="0"><code>this.http.post(&#39;/api&#39;+ reportUrl);
+</code></pre><p>Package.json from the backend is included as well, because I need install the node_modules required for the ExpressJS app. It&rsquo;s probably possible to somehow bundle the dependencies using Webpack, but I was strapped for time and didn&rsquo;t investigate further how to do so.</p>
+<pre tabindex="0"><code>import * as FileAsync from &#39;lowdb/adapters/FileAsync&#39;;
 const low = require(&#39;lowdb&#39;);
 
 low(new FileAsync(path)).then(db =&gt; {
@@ -129,45 +131,47 @@ low(new FileAsync(path)).then(db =&gt; {
     })
     .write();
 });
-</code></pre><p>This will write a default JSON configuration to data/local-db.json.
-Dockerfile
-2. It needs to be small, there isn&rsquo;t a lot of space
-A common practice during development is the throw all the source files into the docker container and run a full node.js server to serve your application. It&rsquo;s the easy, fast, painless.
-But a full node.js on debian server is quite big - nearly 650MB from the start. After installing our ExpressJS app and Angular it went to about 1.3GB.
-So we opted to go with the new barebone OS based on Alpine linux, which is a huge 50MB. With everything installed, it came up to about 300MB. Still much smaller than the full server image.
+</code></pre><p>This will write a default JSON configuration to data/local-db.json.</p>
+<h1 id="dockerfile">Dockerfile</h1>
+<blockquote>
+<ol start="2">
+<li>It needs to be small, there isn&rsquo;t a lot of space</li>
+</ol>
+</blockquote>
+<p>A common practice during development is the throw all the source files into the docker container and run a full node.js server to serve your application. It&rsquo;s the easy, fast, painless.</p>
+<p>But a full node.js on debian server is quite big - nearly 650MB from the start. After installing our ExpressJS app and Angular it went to about 1.3GB.</p>
+<p>So we opted to go with the new barebone OS based on Alpine linux, which is a huge 50MB. With everything installed, it came up to about 300MB. Still much smaller than the full server image.
 The full list of available node base images are here.
-A barebone OS means that we need some extra files in order to install the node modules. ```prettyprint lang-bash
-FROM node:10.15.3-alpine</p>
-<p>ENV JWT_SECRET 512FF7B2EMCKAHG24C
+A barebone OS means that we need some extra files in order to install the node modules.</p>
+<pre tabindex="0"><code>FROM node:10.15.3-alpine
+
+ENV JWT_SECRET 512FF7B2EMCKAHG24C
 ENV BCRYPT_SALT 12
 ENV PORT 8080
-ENV TOKEN_EXPIRES_IN 24h</p>
-<p>WORKDIR /usr/src/app
+ENV TOKEN_EXPIRES_IN 24h
+
+WORKDIR /usr/src/app
 COPY . .
-RUN apk &ndash;no-cache add &ndash;virtual native-deps <br>
-bash g++ gcc libgcc libstdc++ linux-headers make python &amp;&amp; <br>
-npm install &ndash;quiet node-gyp forever -g &amp;&amp;<br>
-npm install &ndash;production &ndash;quiet
+RUN apk --no-cache add --virtual native-deps \
+    bash g++ gcc libgcc libstdc++ linux-headers make python &amp;&amp; \
+    npm install --quiet node-gyp forever -g &amp;&amp;\
+    npm install --production --quiet
 EXPOSE 8080
-CMD forever server.min.js 8080</p>
-<pre tabindex="0"><code>
-
-There is a very detailed documentation on how to write a Dockerfile, but essentially a docker file is similar to a bash script that runs commands in sequence and finally serve the app. `FROM node:10.15.3-alpine` is how I select the image as a base for the container. 
-
-I&#39;m setting environment variables with the `ENV` command. Which can then be read in the ExpressJS app via `process.env`. 
-
-`WORKDIR` selects the current folder I want to use IN the container. If no directory exist, Docker creates them. 
-
-I include several installs (gcc, python etc) that is required for node to be built. 
-
-And then finally serving `server.min.js` with [Forever](https://github.com/foreverjs/forever).
-
-
-Forever is a CLI tool that will run the node server as a daemon, and cannot be killed accidentally. 
-Docker Run
-3. It needs to be able to connect to MariaDB database in the localhost network
-Now comes the fun part – running the app. First we must build it. ```
-$ docker build --tag node-app:alpine .
+CMD forever server.min.js 8080
+</code></pre><p>There is a very detailed <a href="https://docs.docker.com/engine/reference/builder/?ref=jellenekhoh.io">documentation</a> on how to write a Dockerfile, but essentially a docker file is similar to a bash script that runs commands in sequence and finally serve the app. <code>FROM node:10.15.3-alpine</code> is how I select the image as a base for the container.</p>
+<p>I&rsquo;m setting environment variables with the <code>ENV</code> command. Which can then be read in the ExpressJS app via <code>process.env</code>.</p>
+<p><code>WORKDIR</code> selects the current folder I want to use IN the container. If no directory exist, Docker creates them.</p>
+<p>I include several installs (gcc, python etc) that is required for node to be built.</p>
+<p>And then finally serving <code>server.min.js</code> with <a href="https://github.com/foreverjs/forever">Forever</a>.</p>
+<p>Forever is a CLI tool that will run the node server as a daemon, and cannot be killed accidentally.</p>
+<h1 id="docker-run">Docker Run</h1>
+<blockquote>
+<ol start="3">
+<li>It needs to be able to connect to MariaDB database in the localhost network
+Now comes the fun part – running the app. First we must build it.</li>
+</ol>
+</blockquote>
+<pre tabindex="0"><code>$ docker build --tag node-app:alpine .
 </code></pre><p>Docker build reads the command from Dockerfile and builds an image.</p>
 <p><code>--tag</code> allows me to name the docker image, so that it&rsquo;s easier to find it later.</p>
 <p>After building, <code>docker images</code> shows that I&rsquo;ve indeed built an image</p>
@@ -175,61 +179,52 @@ $ docker build --tag node-app:alpine .
 
 REPOSITORY     TAG          IMAGE ID         CREATED          SIZE
 node-app       alpine       f4ca2e0425a0     3 days ago       354MB
-</code></pre><p>Now to run the docker image```
-$ docker run <br>
-&ndash;name node-app <br>
-&ndash;network host <br>
-&ndash;restart &lsquo;unless-stopped&rsquo; \
-&ndash;detach <br>
-node-app:alpine</p>
-<pre tabindex="0"><code>
-
-`--name` lets me set a custom name. If it&#39;s not provided, docker will create a name for you like precious-grauss or similar. 
-
-`--restart` will make the running container run forever unless specifically stopped. 
-
-`--detach` will make it run in the background, freeing up my terminal for other things. If you don&#39;t use this, you&#39;ll need a 2nd terminal to stop your docker container.
-
-`--network` is the *key option* here. One of the requirements is that the docker container should be able to connect to a database on localhost. And by using the option `host`, we can do so. There are other methods of creating docker networks and connecting containers together. You can read more [here](https://docs.docker.com/network/). 
-
-With this command, I am now able to see the app run on `localhost:8080`. And my app is able to connect to the database successfully. 🎉
-
-&lt;iframe src=&#34;https://giphy.com/embed/4apcfHxnRfwjK&#34; width=&#34;480&#34; height=&#34;480&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href=&#34;https://giphy.com/gifs/dance-learn-wiig-4apcfHxnRfwjK&#34;&gt;&lt;small&gt;via GIPHY&lt;/small&gt;&lt;/a&gt;&lt;/p&gt;
-
-
-Docker volume
-4. Certain fields are configurable from a JSON database that is exposed outside the container.
-The docker container should now be running smoothly, until, I find that the local-db json isn&#39;t really updated. And I&#39;m not able to control the configuration from outside the container. That&#39;s because I left out the `--volume` option during docker run that allows me to mount a folder unto docker, which can then be shared between host machine and the docker container. You can read more about data persistence in docker [here](https://docs.docker.com/storage/).
-</code></pre><p>$ docker run <br>
-&ndash;name node-app <br>
-&ndash;volume $(pwd)/data:/usr/src/app/data <br>
-&ndash;network host <br>
-&ndash;restart &lsquo;unless-stopped&rsquo; \
-&ndash;detach <br>
-node-app:alpine</p>
-<pre tabindex="0"><code>
-`$(pwd)` will insert the current working directory into the command. If I were to call docker from a different folder, the pwd will be different. 
-
-Here the volume command mounts the data folder to the data folder that exists inside the docker container `/usr/src/app/` folder. If the target folder does not exist, `--volume` will create it for me. 
-
-Run this, and now I can control the configs from outside. 
-
-
-Saving and Loading images
-Now that I have the image up and running. I need to export the image into a format I can import into different devices and start up the same instance. ```
-$ docker save -o ./node-app-image.tar node-app:alpine
+</code></pre><p>Now to run the docker image</p>
+<pre tabindex="0"><code>$ docker run \
+    --name node-app \
+    --network host \
+    --restart &#39;unless-stopped&#39; \ 
+    --detach \
+    node-app:alpine
+</code></pre><p><code>--name</code> lets me set a custom name. If it&rsquo;s not provided, docker will create a name for you like precious-grauss or similar.</p>
+<p><code>--restart</code> will make the running container run forever unless specifically stopped.</p>
+<p><code>--detach</code> will make it run in the background, freeing up my terminal for other things. If you don&rsquo;t use this, you&rsquo;ll need a 2nd terminal to stop your docker container.</p>
+<p><code>--network</code> is the <em>key option</em> here. One of the requirements is that the docker container should be able to connect to a database on localhost. And by using the option <code>host</code>, we can do so. There are other methods of creating docker networks and connecting containers together. You can read more <a href="https://docs.docker.com/network/">here</a>.</p>
+<p>With this command, I am now able to see the app run on <code>localhost:8080</code>. And my app is able to connect to the database successfully. 🎉</p>
+<iframe src="https://giphy.com/embed/4apcfHxnRfwjK" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dance-learn-wiig-4apcfHxnRfwjK"><small>via GIPHY</small></a></p>
+<h1 id="docker-volume">Docker volume</h1>
+<blockquote>
+<ol start="4">
+<li>Certain fields are configurable from a JSON database that is exposed outside the container.
+The docker container should now be running smoothly, until, I find that the local-db json isn&rsquo;t really updated. And I&rsquo;m not able to control the configuration from outside the container. That&rsquo;s because I left out the <code>--volume</code> option during docker run that allows me to mount a folder unto docker, which can then be shared between host machine and the docker container. You can read more about data persistence in docker <a href="https://docs.docker.com/storage/">here</a>.</li>
+</ol>
+</blockquote>
+<pre tabindex="0"><code>$ docker run \
+    --name node-app \
+    --volume $(pwd)/data:/usr/src/app/data \
+    --network host \
+    --restart &#39;unless-stopped&#39; \ 
+    --detach \
+    node-app:alpine
+</code></pre><p><code>$(pwd)</code> will insert the current working directory into the command. If I were to call docker from a different folder, the pwd will be different.</p>
+<p>Here the volume command mounts the data folder to the data folder that exists inside the docker container <code>/usr/src/app/</code> folder. If the target folder does not exist, <code>--volume</code> will create it for me.</p>
+<p>Run this, and now I can control the configs from outside.</p>
+<p>Saving and Loading images
+Now that I have the image up and running. I need to export the image into a format I can import into different devices and start up the same instance.</p>
+<pre tabindex="0"><code>$ docker save -o ./node-app-image.tar node-app:alpine
 </code></pre><p>The <code>save</code> command exports the current image state into a tarball. I make sure that I have not added any custom configuration, because I don&rsquo;t want them saved into the image.</p>
 <pre tabindex="0"><code>$ docker load -i ./node-app-image.tar
 </code></pre><p>I then run the <code>load</code> command after I have downloaded the tarball into the machine. Loading the image will include the image into <code>docker images</code>. And then I do the <code>run</code> command as before, and it should find the same <code>node-app:alpine</code> image I saved.</p>
-<p>Thoughts
-Docker is really quite powerful. It has let developers scale up apps instantly and confidently, because the environment will always be exactly the same.
+<h1 id="thoughts">Thoughts</h1>
+<p>Docker is really quite powerful. It has let developers scale up apps instantly and confidently, because the environment will always be exactly the same.
 That said, I think the docker documentation can be a little easier to deal with. There is just such a huge amount of configuration to learn, it is no wonder docker setup is a career on its own.
-Regardless, learning docker is exciting. Let me know if there is a better way!<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->via GIPHY<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<h2 id="resources">Resources</h2>
-<p>[1] <a href="https://github.com/nodejs/docker-node">https://github.com/nodejs/docker-node</a>
-[2] <a href="https://github.com/nodejs/docker-node/issues/282">https://github.com/nodejs/docker-node/issues/282</a>
-[3] <a href="https://stackoverflow.com/questions/43316376/what-does-net-host-option-in-docker-command-really-do">https://stackoverflow.com/questions/43316376/what-does-net-host-option-in-docker-command-really-do</a>
-[4] <a href="https://stackoverflow.com/questions/12701259/how-to-make-a-node-js-application-run-permanently">https://stackoverflow.com/questions/12701259/how-to-make-a-node-js-application-run-permanently</a></p>
+Regardless, learning docker is exciting. Let me know if there is a better way!</p>
+<iframe src="https://giphy.com/embed/xUA7bfzccySdtHWUUg" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cute-summer-beach-xUA7bfzccySdtHWUUg"><small>via GIPHY</small></a></p>
+<h1 id="resources">Resources</h1>
+<p>[1] <a href="https://github.com/nodejs/docker-node">https://github.com/nodejs/docker-node</a></p>
+<p>[2] <a href="https://github.com/nodejs/docker-node/issues/282">https://github.com/nodejs/docker-node/issues/282</a></p>
+<p>[3] <a href="https://stackoverflow.com/questions/43316376/what-does-net-host-option-in-docker-command-really-do">https://stackoverflow.com/questions/43316376/what-does-net-host-option-in-docker-command-really-do</a></p>
+<p>[4] <a href="https://stackoverflow.com/questions/12701259/how-to-make-a-node-js-application-run-permanently">https://stackoverflow.com/questions/12701259/how-to-make-a-node-js-application-run-permanently</a></p>
 <ul class="pa0">
   
 </ul>

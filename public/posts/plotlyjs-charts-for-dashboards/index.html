@@ -54,16 +54,16 @@ I&rsquo;ve had to build a few dashboards for IoT companies, and charts are defin
 <section class="uk-child-width-expand@s" uk-grid>
   <div class="uk-width-1-3@m">
     <a href="/">
-      <img data-src="images/logo.png" uk-img class="uk-width-small uk-padding">
+      <img data-src="images/logo.png" uk-img class="uk-width-small uk-padding uk-align-right page-logo">
     </a>
   </div>
 
   <section class="uk-padding-large vh-100 uk-overflow-auto">
-    <header>
+    <header class="uk-margin-large-bottom">
       
         <img src="/images/plotlytitle-1.png">
       
-      <h1 class="f1 athelas mt3 mb1">
+      <h1 class="cover-title">
         Plotly.js Charts for Dashboards
       </h1>
       
@@ -71,7 +71,8 @@ I&rsquo;ve had to build a few dashboards for IoT companies, and charts are defin
       
 
     </header>
-    <div class=""><p>Today we&rsquo;re going to look at a really powerful charting library that is really easy to use and set up. Plotly Open Source Graphing Library supports several programming languages, including Python, Matlab, R, and most importantly Javascript!</p>
+    <div class="">
+      <p>Today we&rsquo;re going to look at a really powerful charting library that is really easy to use and set up. Plotly Open Source Graphing Library supports several programming languages, including Python, Matlab, R, and most importantly Javascript!</p>
 <p>I&rsquo;ve had to build a few dashboards for IoT companies, and charts are definitely one of the biggest elements in the view. Need I say more about the significance of charts to business related reporting such as sales, network monitoring, stocks etc.</p>
 <p>Plotly offers many kinds of charts and maps, but the most common ones I use are:</p>
 <ul>
@@ -79,18 +80,22 @@ I&rsquo;ve had to build a few dashboards for IoT companies, and charts are defin
 <li>Bar charts</li>
 <li>Step charts</li>
 </ul>
-<p>Below I&rsquo;ll walk through the basics on how I use plotly.js in an actual project. &mdash;</p>
-<p>Installation
-Very similar to other charting libraries, you can get them via CDN or npm packages. More detailed guide is in their github page.
-CDN
-Insert the script in the head of index.html```prettyprint lang-html</p>
-<!-- raw HTML omitted -->
-<p>NPM
-To install with npm simply do</p>
+<p>Below I&rsquo;ll walk through the basics on how I use plotly.js in an actual project.</p>
+<hr>
+<h1 id="installation">Installation</h1>
+<p>Very similar to other charting libraries, you can get them via CDN or npm packages. More detailed guide is in their github page.</p>
+<h2 id="cdn">CDN</h2>
+<p>Insert the script in the head of index.html```prettyprint lang-html</p>
+<head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+```
+<h2 id="npm">NPM</h2>
+<p>To install with npm simply do</p>
 <pre tabindex="0"><code>$ npm install plotly.js-dist
-</code></pre><p>Note that it is plotly.js-dist and not plotly.js
-Import
-Now to import it into your project do</p>
+</code></pre><p>Note that it is plotly.js-dist and not <del>plotly.js</del></p>
+<h2 id="import">Import</h2>
+<p>Now to import it into your project do</p>
 <pre tabindex="0"><code>import Plotly from &#39;plotly.js-dist&#39;
 
 ...
@@ -98,9 +103,15 @@ Now to import it into your project do</p>
 Plotly.newPlot(&#39;div-id&#39;, data, layout, options);
 </code></pre><p>In the html you&rsquo;ll need a div with the id you want to point to.</p>
 <pre tabindex="0"><code>&lt;div id=&#34;div-id&#34;&gt;&lt;/div&gt;
-</code></pre><p>Really easy stuff! &mdash;</p>
-<p>Plotting a basic chart
-Now let do a basic line chart.Basic plotly.js line chart</p>
+</code></pre><p>Really easy stuff!</p>
+<hr>
+<h1 id="plotting-a-basic-chart">Plotting a basic chart</h1>
+<p>Now let do a basic line chart.</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="Plotly line" src="https://codepen.io/jellene4eva/embed/JzrKYW?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/jellene4eva/pen/JzrKYW">
+  Plotly line</a> by Jellene Khoh (<a href="https://codepen.io/jellene4eva">@jellene4eva</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 <p>The javascript for this small chart is simple, we want to break down some of the important flags you need.</p>
 <pre tabindex="0"><code>var trace1 = {
   name: &#39;Energy consumption&#39;,
@@ -129,10 +140,13 @@ Plotly.newPlot(&#39;myDiv&#39;, data, layout, {
   responsive: true,
   displaylogo: false
 });
-</code></pre><p>trace
-Each series in the chart is referred to as a trace. The xaxis is usually the time range, and the yaxis is the value. Here, I purposely use string for my xaxis because I want to be able to parse it into different localized format, e.g. Feb 2, 2019 in US, vs 2.2.2019 in Finland. Or even into quarters e.g. Q1/2018.  @note: Plotly has locale config, but I wanted more control.</p>
-<p>If you treat each xaxis item as a category, then everything will work fine. If xaxis is an array of <code>Date</code> items, Plotly will automatically parse it into a timeseries chart.
-You can specify the line color of the each trace. If you leave it out, Plotly will provide a color based on the index. To change the color, add an entry</p>
+</code></pre><h2 id="trace">trace</h2>
+<p>Each series in the chart is referred to as a trace. The xaxis is usually the time range, and the yaxis is the value. Here, I purposely use string for my xaxis because I want to be able to parse it into different localized format, e.g. Feb 2, 2019 in US, vs 2.2.2019 in Finland. Or even into quarters e.g. Q1/2018.</p>
+<blockquote>
+<p>@note: Plotly has locale config, but I wanted more control.</p>
+</blockquote>
+<p>If you treat each xaxis item as a category, then everything will work fine. If xaxis is an array of <code>Date</code> items, Plotly will automatically parse it into a timeseries chart.</p>
+<p>You can specify the line color of the each trace. If you leave it out, Plotly will provide a color based on the index. To change the color, add an entry</p>
 <pre tabindex="0"><code>line: { 
     color: &#39;#fff&#39; 
 }
@@ -140,22 +154,30 @@ You can specify the line color of the each trace. If you leave it out, Plotly wi
 layout
 Layout is the general settings for Plotly. Here we&rsquo;re hiding the legends by adding this in the object.</p>
 <pre tabindex="0"><code>showlegend: false
-</code></pre><p>Legends allow you to show / hide each trace, which is pretty handy, but I&rsquo;ve decided to turn it off. In my app, I have other buttons outside the chart for me to control showing and hiding of each data, so I don&rsquo;t need the legends.
-Other configurations that I usually use for layout are font, autosize, margin, to make the chart fit your container.
-Full documentation here: <a href="https://plot.ly/javascript/reference/#layout">https://plot.ly/javascript/reference/#layout</a>
-configuration
-These configurations are extra options for other functions around the chart, such as:
-Allowing Scroll and Zoom
-Modebar show / hide
-Useful ones for me are</p>
+</code></pre><p>Legends allow you to show / hide each trace, which is pretty handy, but I&rsquo;ve decided to turn it off. In my app, I have other buttons outside the chart for me to control showing and hiding of each data, so I don&rsquo;t need the legends.</p>
+<p>Other configurations that I usually use for layout are font, autosize, margin, to make the chart fit your container.</p>
+<p>Full documentation here: <a href="https://plot.ly/javascript/reference/#layout">https://plot.ly/javascript/reference/#layout</a></p>
+<h1 id="configuration">configuration</h1>
+<p>These configurations are extra options for other functions around the chart, such as:</p>
+<ul>
+<li>Allowing Scroll and Zoom</li>
+<li>Modebar show / hide</li>
+</ul>
+<p>Useful ones for me are</p>
 <pre tabindex="0"><code>{
     responsive: true, 
     displaylogo: false
 }
-</code></pre><p>This should be pretty self explanatory - the configuration allows the chart to change width according to the window, and also remove Plotly&rsquo;s logo from the modebar.
-Full documentation here: <a href="https://plot.ly/javascript/configuration-options/---">https://plot.ly/javascript/configuration-options/---</a></p>
-<p>Multiple axes
-We now explore how to use different chart types in the same plot.</p>
+</code></pre><p>This should be pretty self explanatory - the configuration allows the chart to change width according to the window, and also remove Plotly&rsquo;s logo from the modebar.</p>
+<p>Full documentation here: <a href="https://plot.ly/javascript/configuration-options/">https://plot.ly/javascript/configuration-options/</a></p>
+<hr>
+<h1 id="multiple-axes">Multiple axes</h1>
+<p>We now explore how to use different chart types in the same plot.</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="Plotly multi chart" src="https://codepen.io/jellene4eva/embed/aMLmMM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/jellene4eva/pen/aMLmMM">
+  Plotly multi chart</a> by Jellene Khoh (<a href="https://codepen.io/jellene4eva">@jellene4eva</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 <pre tabindex="0"><code>var trace1 = {
   name: &#34;Energy consumption&#34;,
   x: [
@@ -231,8 +253,9 @@ Plotly.newPlot(&#34;myDiv&#34;, data, layout, {
   responsive: true,
   displaylogo: false
 });
-</code></pre><p>Chart types
-Here we have 3 basic chart types - line, step, and bar charts. You can configure them for each trace</p>
+</code></pre><hr>
+<h1 id="chart-types">Chart types</h1>
+<p>Here we have 3 basic chart types - line, step, and bar charts. You can configure them for each trace</p>
 <pre tabindex="0"><code>
 type: &#34;line&#34;
 
@@ -254,16 +277,20 @@ line: {
     hoverinfo: &#39;x+text+name&#39;,
     ...
 }
-</code></pre><p>Custom text can be used to insert unit to the values. hoverinfo allows you to customize what you want to show when the mouse is hovering over the value. If we use the text instead of y then we can have the unit shown. &mdash;</p>
-<p>Putting it togetherDemo iot dashboard</p>
+</code></pre><p>Custom text can be used to insert unit to the values. hoverinfo allows you to customize what you want to show when the mouse is hovering over the value. If we use the text instead of y then we can have the unit shown.</p>
+<hr>
+<h1 id="putting-it-together">Putting it together</h1>
+<p><img src="/content/Screenshot-from-2019-03-13-22-51-28.png" alt="Demo iot dashboard"></p>
 <p>Here is a real life example of an iot dashboard for showing value changes of live sensor data.
 Hopefully with this you can use Plotly in your future projects with ease.
 View more examples of plotly here in the feed: <a href="https://plot.ly/feed/#/">https://plot.ly/feed/#/</a></p>
 <h1 id="other-charting-libraries">Other charting libraries</h1>
-<p>Highcharts
-D3.js
-Google Charts
-Chart.js</p>
+<ul>
+<li>Highcharts</li>
+<li>D3.js</li>
+<li>Google Charts</li>
+<li>Chart.js</li>
+</ul>
 <ul class="pa0">
   
 </ul>

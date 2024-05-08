@@ -242,6 +242,7 @@ You can access data files via `$.Site.Data.<filename>`
 ---
 
 
-Conclusions
+# Conclusions
+
 Hugo, is easy to learn, quick to develop, flexible enough for customization, yet structured enough for maintenance. 
 I like it a lot and would recommend it for any static sites that does not require an editor.

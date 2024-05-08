@@ -54,16 +54,16 @@ PROS It allows for variables in the template (using Hugo&rsquo;s own templating 
 <section class="uk-child-width-expand@s" uk-grid>
   <div class="uk-width-1-3@m">
     <a href="/">
-      <img data-src="images/logo.png" uk-img class="uk-width-small uk-padding">
+      <img data-src="images/logo.png" uk-img class="uk-width-small uk-padding uk-align-right page-logo">
     </a>
   </div>
 
   <section class="uk-padding-large vh-100 uk-overflow-auto">
-    <header>
+    <header class="uk-margin-large-bottom">
       
         <img src="/images/hugo-bg.jpg">
       
-      <h1 class="f1 athelas mt3 mb1">
+      <h1 class="cover-title">
         Hugo 101
       </h1>
       
@@ -71,7 +71,8 @@ PROS It allows for variables in the template (using Hugo&rsquo;s own templating 
       
 
     </header>
-    <div class=""><p>Hugo is an open source static site generator that is powered by Go - which makes it insanely fast to compile and run.
+    <div class="">
+      <p>Hugo is an open source static site generator that is powered by Go - which makes it insanely fast to compile and run.
 What is a static site? Well it&rsquo;s the most basic website of all, pure HTML. Hugo as a framework allows you to use templates to generate HTML files quickly.
 Let&rsquo;s go over the pros and cons:</p>
 <h5 id="pros">PROS</h5>
@@ -106,21 +107,21 @@ $ hugo serve
 </code></pre><p>Adding CSS and JavascriptThe folder <code>/assets</code> is for CSS and Javascript you want to upload to the site, since it uses Hugo Pipes.</p>
 <blockquote>
 <p>Stores all the files which need be processed by Hugo Pipes. Only the files whose .Permalink or .RelPermalink are used will be published to the public directory.
-<!-- raw HTML omitted --><a href="https://gohugo.io/getting-started/directory-structure/">https://gohugo.io/getting-started/directory-structure/</a><!-- raw HTML omitted --></p>
+<sup><a href="https://gohugo.io/getting-started/directory-structure/">https://gohugo.io/getting-started/directory-structure/</a></sup></p>
 </blockquote>
 <p>I like to put my SCSS into a folder, and import it in the <code>/layouts/baseof/_default.html</code> file.</p>
 <p>This will mean that every page will include the whole CSS file. If you&rsquo;d like to have something more specific to each page, then add the CSS to the HTML for the specific page you want. We&rsquo;ll get into custom pages later.</p>
-<p><!-- raw HTML omitted -->Folder structure<!-- raw HTML omitted --></p>
+<p><sub>Folder structure</sub></p>
 <pre tabindex="0"><code>assets
 ├── js
 │   └── index.js
 └── scss
     ├── _single.scss
     └── main.scss
-</code></pre><p><!-- raw HTML omitted -->main.scss<!-- raw HTML omitted --></p>
+</code></pre><p><sub>main.scss</sub></p>
 <pre tabindex="0"><code>@import &#39;_single.scss&#39;
 </code></pre><p><em>single.scss is just a name. But it is convention to add &ldquo;</em>&rdquo; prefix for CSS partials and import them in the main.</p>
-<p>As a cleanliness rule, wrap your CSS partials with a wrapper class so that it doesn&rsquo;t leak outside the intended pages. Especially since all the pages are using the same stylesheet. <!-- raw HTML omitted -->_default.html<!-- raw HTML omitted --></p>
+<p>As a cleanliness rule, wrap your CSS partials with a wrapper class so that it doesn&rsquo;t leak outside the intended pages. Especially since all the pages are using the same stylesheet. <sub>_default.html</sub></p>
 <pre tabindex="0"><code>&lt;!--
     JAVASCRIPT IMPORT
 --&gt;
@@ -149,38 +150,38 @@ $ hugo serve
         ├── first.html      // &lt;- https://example.com/quote/first/
         └── second.html     // &lt;- https://example.com/quote/second/
 </code></pre><h1 id="defaults">Defaults</h1>
-<p><!-- raw HTML omitted -->/layouts/_default/baseof.html<!-- raw HTML omitted -->
+<p><b>/layouts/_default/baseof.html</b>
 is the basic template for every page, and it usually contains the <code>&lt;head&gt;</code> and <code>&lt;style&gt;</code> declarations.</p>
 <pre tabindex="0"><code>&lt;main&gt;
     {{ block &#34;main&#34; . }}{{ end }}
 &lt;/main&gt;
 </code></pre><p><code>{{ block &quot;main&quot; . }}</code>
 is where your other pages slot in. In other pages you&rsquo;ll likely see a <code>{{ define &quot;main&quot; }}</code>.</p>
-<p><!-- raw HTML omitted -->/layouts/_default/single.html<!-- raw HTML omitted -->
+<p><b>/layouts/_default/single.html</b>
 is the template for html pages in <code>/content/**/*.html</code>.</p>
-<p><!-- raw HTML omitted -->/layouts/partials<!-- raw HTML omitted -->
+<p><b>/layouts/partials</b>
 contains single partial HTML that can be inserted into other layout pages.</p>
 <h1 id="templating-html">Templating HTML</h1>
-<p>Templating uses something akin to Go templating handlebars. There are several functions you can use, but most common will be:<!-- raw HTML omitted -->Partials<!-- raw HTML omitted -->
+<p>Templating uses something akin to Go templating handlebars. There are several functions you can use, but most common will be:<b>Partials</b>
 These are used to send in HTML partials you&rsquo;ve made from /layouts/partials/&lt;filename&gt;.html. A dictionary (object) of values can be sent into a partial by using the <code>dict</code> function</p>
 <pre tabindex="0"><code>{{ partial &#34;&lt;filename&gt;&#34; (dict &#34;context&#34; . &lt;key&gt; &lt;value&gt; &lt;key&gt; &lt;value&gt;) }}
 </code></pre><pre tabindex="0"><code>{{ partial &#34;contact-button&#34; (dict &#34;context&#34; . 
     &#34;text&#34; &#34;Request A Demo&#34; 
     &#34;color&#34; &#34;#ffee33&#34;) 
 }}
-</code></pre><p><!-- raw HTML omitted -->Range<!-- raw HTML omitted -->
+</code></pre><p><b>Range</b>
 A for-each loop. Ranges require an <code>{{ end }}</code>.</p>
 <pre tabindex="0"><code>{{ range (where .Site.RegularPages &#34;Section&#34; &#34;blog&#34;) }}
 {{ .Title }}
 {{ end }}
-</code></pre><p><!-- raw HTML omitted -->If<!-- raw HTML omitted -->
+</code></pre><p><b>If</b>
 If blocks. Also requires an end.</p>
 <pre tabindex="0"><code>{{ if eq $variable true }}
     &lt;p&gt;This will show if true
 {{ end }}
 </code></pre><p>FrontmatterFrontmatter such as titles and section are listed on the top of the html page within <code>/content</code>. Certain frontmatter params are used for structuring the footer and navbar such as <code>section</code> and <code>subsection</code>.</p>
 <p>You can even use HTML in your Frontmatter, as long as you import it correctly in your template.</p>
-<p><!-- raw HTML omitted -->layouts/software/single.html<!-- raw HTML omitted --></p>
+<p><sub>layouts/software/single.html</sub></p>
 <pre tabindex="0"><code>---
 header:
     title: Software Development
@@ -202,13 +203,13 @@ imgs:
 <pre tabindex="0"><code>{{ if .Params.longDesc }}&lt;p&gt;{{ .Params.longDesc | safeHTML }}&lt;/p&gt;{{ end }}
 </code></pre><p>Global VariablesAny variable that wish to be saved globally can be set in <code>config.yaml</code> under the <code>params</code> key.</p>
 <p>You can access the parameter in html using <code>{{ $.Site.Params.[parameter key]}}</code>.</p>
-<p><!-- raw HTML omitted -->config.yaml<!-- raw HTML omitted --></p>
+<p><sub>config.yaml</sub></p>
 <pre tabindex="0"><code>params:
     gtagKey: U-123456
-</code></pre><p><!-- raw HTML omitted -->_baseof.html<!-- raw HTML omitted --></p>
+</code></pre><p><sub>_baseof.html</sub></p>
 <pre tabindex="0"><code>&lt;script async src=&#34;https://www.googletagmanager.com/gtag/js?id={{ $.Site.Params.gtagKey }}&#34;&gt;&lt;/script&gt;
 </code></pre><p>You can access data files via <code>$.Site.Data.&lt;filename&gt;</code></p>
-<p><!-- raw HTML omitted -->/data/testimonials.yaml<!-- raw HTML omitted --></p>
+<p><sub>/data/testimonials.yaml</sub></p>
 <pre tabindex="0"><code>- 
     icon: la-handshake
     text: lorem ipsum
@@ -219,15 +220,15 @@ imgs:
     text: lorem ipsum
     position: Director
     company: Chase Bank
-</code></pre><p><!-- raw HTML omitted -->/layout/partials/testimonials-section.html<!-- raw HTML omitted --></p>
+</code></pre><p><sub>/layout/partials/testimonials-section.html</sub></p>
 <pre tabindex="0"><code>{{ range $.Site.Data.testimonials }}   
 &lt;li&gt;
     &lt;img class=&#34;la {{ .icon }}&#34;/&gt; &lt;h6&gt;{{ .position }} | {{ .company }}&lt;/h6&gt;
     &lt;h4&gt;&#34;{{ .text }}&#34;&lt;/h4&gt;
 &lt;/li&gt;
 </code></pre><hr>
-<p>Conclusions
-Hugo, is easy to learn, quick to develop, flexible enough for customization, yet structured enough for maintenance.
+<h1 id="conclusions">Conclusions</h1>
+<p>Hugo, is easy to learn, quick to develop, flexible enough for customization, yet structured enough for maintenance.
 I like it a lot and would recommend it for any static sites that does not require an editor.</p>
 <ul class="pa0">
   

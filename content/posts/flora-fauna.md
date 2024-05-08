@@ -5,4 +5,3 @@ cover = 'images/florafauna.jpg'
 draft = false
 +++
 
-<img src="images/florafauna.jpg">

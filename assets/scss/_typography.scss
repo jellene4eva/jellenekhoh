@@ -4,7 +4,6 @@ html, body {
         color: var(--global-color-primary);
         &:hover, &:focus {
             color: var(--global-color-secondary); // careful of <a class="uk-button> buttons
-            text-decoration: none;
         }
     }
 
@@ -48,4 +47,9 @@ p {
     font-weight: 500;
     font-size: 1.1em;
     text-align: left;
+}
+
+blockquote {
+    border-left: 10px solid var(--global-color-secondary);
+    padding: 10px 30px;
 }

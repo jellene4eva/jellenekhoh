@@ -2,3 +2,5 @@ baseURL = 'https://jellenekhoh.io'
 languageCode = 'en-us'
 title = 'Nasi Lemak & Piirakka'
 theme = 'ananke'
+[markup.goldmark.renderer]
+  unsafe = true # Allow HTML in md files
