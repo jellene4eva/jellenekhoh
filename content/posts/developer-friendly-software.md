@@ -66,7 +66,7 @@ Good code has to adhere to some form of standards, and that means:
 - Format code similar to widely used style guides
 - Follow framework recommendations for folder structures
   
-  > "Bad programmers worry about the code. Good programmers worry about data structures and their relationships." - Linus Torvalds
+> "Bad programmers worry about the code. Good programmers worry about data structures and their relationships." - Linus Torvalds
 
 Standards make it that little bit easier to understand code and the flow of data within the software.
 
