@@ -11,13 +11,13 @@ It's ready now, you know it. You've spent a lot of time writing this masterpiece
 
 This wasn't the great reveal you were expecting.
 
-So, what went wrong?
+# So, what went wrong?
 Couple of things come to mind:
 
-You worked alone for too long without code review
-Trying to reinvent the wheel
-Not following standards
-Did not give enough thought into API design
+1. You worked alone for too long without code review
+2. Trying to reinvent the wheel
+3. Not following standards
+4. Did not give enough thought into API design
 
 # 1. Work as a team, you must
 Rarely anyone works solo anymore. Even as the sole developer in your company, you'll always have code connecting to other services, connecting to your own services. Or just code that eventually someone needs to see.
@@ -32,9 +32,10 @@ Basic "good programming" paradigm are basic for a reason - it makes developers' 
 
 It's not always wrong to reinvent the wheel. Sometimes it can be very beneficial to do so, especially if:
 
-The library available is overly bloated and heavy
-You're practicing
-Existing libraries have outdated dependencies
+1. The library available is overly bloated and heavy
+2. You're practicing
+3. Existing libraries have outdated dependencies
+
 More often than not, we as developers tend to think that we know best. That we're going to make it so much more easier to use. Our new version will have all the bells and whistles that anyone would ever need.
 
 But we are not artists in the traditional sense - we don't need our own voice in code. Good code is code that everybody understands and able to use with ease. Imitating someone else's voice can be a good thing!  
@@ -60,10 +61,10 @@ That my friend, is standards. Standards are the back bone of technology. Univers
 
 Good code has to adhere to some form of standards, and that means:
 
-Using proper server response code when appropriate, e.g. 500 only for server errors, 403 for unauthorized requests
-Accept common data formats such as JSON or YAML
-Format code similar to widely used style guides
-Follow framework recommendations for folder structures
+- Using proper server response code when appropriate, e.g. 500 only for server errors, 403 for unauthorized requests
+- Accept common data formats such as JSON or YAML
+- Format code similar to widely used style guides
+- Follow framework recommendations for folder structures
   
   > "Bad programmers worry about the code. Good programmers worry about data structures and their relationships." - Linus Torvalds
 
@@ -109,14 +110,14 @@ calcIncome({gross, savingsPercent, taxPercent, credit, maritalStatus}) {
 
 2 months after abandoning the project, you'll still be able to immediately understand what is required to use the function, instead of having to jump to definition and re-read the function again to know what it needs.
 
-Consistency is key
+# Consistency is key
 Remember that time you had to send a POST to get a a list of users? What about feeling like you had to jump over hoops to do parse an array?
 
   > Germane cognitive load is the processing, construction and automation of schemas, which is a pattern of thought or behavior that organizes categories of information and the relationships among them.
 
 Germane cognitive load is a UX theory that utilizes a pattern or information that user's already know, in order to make it easier for them to understand what we're trying to convey through design.
 
-For example: hamburger menu was at one point a very common and easy way for users to find the drawer for all the navigation. Everyone looked out for it whenever they couldn't find where they wanted to navigate to.
+For example: _hamburger menu_ was at one point a very common and easy way for users to find the drawer for all the navigation. Everyone looked out for it whenever they couldn't find where they wanted to navigate to.
 
 Similarly, having consistent API endpoints can make it easy for any user of your library to guess what the function does without reading much documentation.
 
@@ -155,15 +156,16 @@ Any seasoned programmer will tell you, bug fixing is probably the bread and butt
 
 To start off,
 
-Handle errors properly when making HTTP calls.
-Handle timeouts when something is calculating for too long
-Incorrect or missing parameters
+1. Handle errors properly when making HTTP calls.
+2. Handle timeouts when something is calculating for too long
+3. Incorrect or missing parameters
+
 Chrome and Firefox at least comes with console logs that are color coded.
 
-Use console.log() for basic logging
-Use console.error() and console.warn() for eye-catching stuff
-Use console.group() and console.groupEnd() to group related messages and avoid clutter
-Use console.assert() to show conditional error messages
+- Use console.log() for basic logging
+- Use console.error() and console.warn() for eye-catching stuff
+- Use console.group() and console.groupEnd() to group related messages and avoid clutter
+- Use console.assert() to show conditional error messages
 
 ![Console.error() is useful for critical failures](/content/image-3.png)
 

@@ -120,7 +120,7 @@ $ hugo serve
     └── main.scss
 </code></pre><p><sub>main.scss</sub></p>
 <pre tabindex="0"><code>@import &#39;_single.scss&#39;
-</code></pre><p><em>single.scss is just a name. But it is convention to add &ldquo;</em>&rdquo; prefix for CSS partials and import them in the main.</p>
+</code></pre><p>_single.scss is just a name. But it is convention to add &ldquo;_&rdquo; prefix for CSS partials and import them in the main.</p>
 <p>As a cleanliness rule, wrap your CSS partials with a wrapper class so that it doesn&rsquo;t leak outside the intended pages. Especially since all the pages are using the same stylesheet. <sub>_default.html</sub></p>
 <pre tabindex="0"><code>&lt;!--
     JAVASCRIPT IMPORT
@@ -169,13 +169,13 @@ These are used to send in HTML partials you&rsquo;ve made from /layouts/partials
     &#34;text&#34; &#34;Request A Demo&#34; 
     &#34;color&#34; &#34;#ffee33&#34;) 
 }}
-</code></pre><p><b>Range</b>
-A for-each loop. Ranges require an <code>{{ end }}</code>.</p>
+</code></pre><p><b>Range</b></p>
+<p>A for-each loop. Ranges require an <code>{{ end }}</code>.</p>
 <pre tabindex="0"><code>{{ range (where .Site.RegularPages &#34;Section&#34; &#34;blog&#34;) }}
 {{ .Title }}
 {{ end }}
-</code></pre><p><b>If</b>
-If blocks. Also requires an end.</p>
+</code></pre><p><b>If</b></p>
+<p>If blocks. Also requires an end.</p>
 <pre tabindex="0"><code>{{ if eq $variable true }}
     &lt;p&gt;This will show if true
 {{ end }}

@@ -75,12 +75,14 @@
       <p>It&rsquo;s ready now, you know it. You&rsquo;ve spent a lot of time writing this masterpiece. Your finest work thus far. It&rsquo;s time for other people on your team to know about this library / software you just made. You brace yourself for the positive feedback you&rsquo;re going to get, oh fo&rsquo; sho'!</p>
 <p>&ldquo;How do I use this?&rdquo;, &ldquo;Why did you do that?&rdquo;, &ldquo;Oh we already have a library for that&rdquo;&hellip;</p>
 <p>This wasn&rsquo;t the great reveal you were expecting.</p>
-<p>So, what went wrong?
-Couple of things come to mind:</p>
-<p>You worked alone for too long without code review
-Trying to reinvent the wheel
-Not following standards
-Did not give enough thought into API design</p>
+<h1 id="so-what-went-wrong">So, what went wrong?</h1>
+<p>Couple of things come to mind:</p>
+<ol>
+<li>You worked alone for too long without code review</li>
+<li>Trying to reinvent the wheel</li>
+<li>Not following standards</li>
+<li>Did not give enough thought into API design</li>
+</ol>
 <h1 id="1-work-as-a-team-you-must">1. Work as a team, you must</h1>
 <p>Rarely anyone works solo anymore. Even as the sole developer in your company, you&rsquo;ll always have code connecting to other services, connecting to your own services. Or just code that eventually someone needs to see.</p>
 <p>I am a strong believer of regular pair programming - it forces you to think like another developer. It doesn&rsquo;t just reduce bugs, it also makes sure that other developers on your team understand what you were trying to do.</p>
@@ -90,10 +92,12 @@ Did not give enough thought into API design</p>
 <p>Basic &ldquo;good programming&rdquo; paradigm are basic for a reason - it makes developers&rsquo; life easy. Have good variables, have useful comments, prioritize code comprehension over performance. These things become apparent as you pair program.</p>
 <h1 id="2-can-you-build-a-better-wheel-by-yourself">2. Can you build a better wheel by yourself?</h1>
 <p>It&rsquo;s not always wrong to reinvent the wheel. Sometimes it can be very beneficial to do so, especially if:</p>
-<p>The library available is overly bloated and heavy
-You&rsquo;re practicing
-Existing libraries have outdated dependencies
-More often than not, we as developers tend to think that we know best. That we&rsquo;re going to make it so much more easier to use. Our new version will have all the bells and whistles that anyone would ever need.</p>
+<ol>
+<li>The library available is overly bloated and heavy</li>
+<li>You&rsquo;re practicing</li>
+<li>Existing libraries have outdated dependencies</li>
+</ol>
+<p>More often than not, we as developers tend to think that we know best. That we&rsquo;re going to make it so much more easier to use. Our new version will have all the bells and whistles that anyone would ever need.</p>
 <p>But we are not artists in the traditional sense - we don&rsquo;t need our own voice in code. Good code is code that everybody understands and able to use with ease. Imitating someone else&rsquo;s voice can be a good thing!</p>
 <p>Rewriting a function or a library will lead to bugs that other people might have already solved. New code are error prone, it hasn&rsquo;t seen battle enough. It takes time to document everything well.</p>
 <p>New functions also mean someone will have to rewrite their code to fit your new fancy library.</p>
@@ -108,13 +112,23 @@ More often than not, we as developers tend to think that we know best. That we&r
 <p>Remember back when phone chargers were all different? When every phone had a slightly different port and different voltage for each brand? Then came the savior that is micro-USB that saved us all from Apple hell?</p>
 <p>That my friend, is standards. Standards are the back bone of technology. Universal compatibility drives the web, internet and its&rsquo; protocols work on all OSes.</p>
 <p>Good code has to adhere to some form of standards, and that means:</p>
-<p>Using proper server response code when appropriate, e.g. 500 only for server errors, 403 for unauthorized requests
-Accept common data formats such as JSON or YAML
-Format code similar to widely used style guides
-Follow framework recommendations for folder structures</p>
+<ul>
+<li>
+<p>Using proper server response code when appropriate, e.g. 500 only for server errors, 403 for unauthorized requests</p>
+</li>
+<li>
+<p>Accept common data formats such as JSON or YAML</p>
+</li>
+<li>
+<p>Format code similar to widely used style guides</p>
+</li>
+<li>
+<p>Follow framework recommendations for folder structures</p>
 <blockquote>
 <p>&ldquo;Bad programmers worry about the code. Good programmers worry about data structures and their relationships.&rdquo; - Linus Torvalds</p>
 </blockquote>
+</li>
+</ul>
 <p>Standards make it that little bit easier to understand code and the flow of data within the software.</p>
 <h1 id="4-better-api-design">4. Better API Design</h1>
 <p>We&rsquo;ve all seen code like these</p>
@@ -143,13 +157,13 @@ calcIncome({gross, savingsPercent, taxPercent, credit, maritalStatus}) {
 	...
 }
 </code></pre><p>2 months after abandoning the project, you&rsquo;ll still be able to immediately understand what is required to use the function, instead of having to jump to definition and re-read the function again to know what it needs.</p>
-<p>Consistency is key
-Remember that time you had to send a POST to get a a list of users? What about feeling like you had to jump over hoops to do parse an array?</p>
+<h1 id="consistency-is-key">Consistency is key</h1>
+<p>Remember that time you had to send a POST to get a a list of users? What about feeling like you had to jump over hoops to do parse an array?</p>
 <blockquote>
 <p>Germane cognitive load is the processing, construction and automation of schemas, which is a pattern of thought or behavior that organizes categories of information and the relationships among them.</p>
 </blockquote>
 <p>Germane cognitive load is a UX theory that utilizes a pattern or information that user&rsquo;s already know, in order to make it easier for them to understand what we&rsquo;re trying to convey through design.</p>
-<p>For example: hamburger menu was at one point a very common and easy way for users to find the drawer for all the navigation. Everyone looked out for it whenever they couldn&rsquo;t find where they wanted to navigate to.</p>
+<p>For example: <em>hamburger menu</em> was at one point a very common and easy way for users to find the drawer for all the navigation. Everyone looked out for it whenever they couldn&rsquo;t find where they wanted to navigate to.</p>
 <p>Similarly, having consistent API endpoints can make it easy for any user of your library to guess what the function does without reading much documentation.</p>
 <p>Lodash is a good example of a library that has consistent APIs.</p>
 <pre tabindex="0"><code>var users = [
@@ -180,14 +194,18 @@ _.uniqBy([{ &#39;x&#39;: 1 }, { &#39;x&#39;: 2 }, { &#39;x&#39;: 1 }], &#39;x&#3
 <p>The main difference between the error messages coming from library level and service/application level is debugging information. - Robert Vandenberg Huang</p>
 </blockquote>
 <p>To start off,</p>
-<p>Handle errors properly when making HTTP calls.
-Handle timeouts when something is calculating for too long
-Incorrect or missing parameters
-Chrome and Firefox at least comes with console logs that are color coded.</p>
-<p>Use console.log() for basic logging
-Use console.error() and console.warn() for eye-catching stuff
-Use console.group() and console.groupEnd() to group related messages and avoid clutter
-Use console.assert() to show conditional error messages</p>
+<ol>
+<li>Handle errors properly when making HTTP calls.</li>
+<li>Handle timeouts when something is calculating for too long</li>
+<li>Incorrect or missing parameters</li>
+</ol>
+<p>Chrome and Firefox at least comes with console logs that are color coded.</p>
+<ul>
+<li>Use console.log() for basic logging</li>
+<li>Use console.error() and console.warn() for eye-catching stuff</li>
+<li>Use console.group() and console.groupEnd() to group related messages and avoid clutter</li>
+<li>Use console.assert() to show conditional error messages</li>
+</ul>
 <p><img src="/content/image-3.png" alt="Console.error() is useful for critical failures"></p>
 <h1 id="summary">Summary</h1>
 <p>At this point, I feel like I&rsquo;ve been just reiterating the same points over and over again. UX design and programming can be applied to each other. Developer are users too, and as such, can be treated to better and easier to read/use code.</p>

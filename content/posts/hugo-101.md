@@ -70,7 +70,7 @@ assets
 
 
 
-_single.scss is just a name. But it is convention to add "_" prefix for CSS partials and import them in the main. 
+\_single.scss is just a name. But it is convention to add "\_" prefix for CSS partials and import them in the main. 
 
 As a cleanliness rule, wrap your CSS partials with a wrapper class so that it doesn't leak outside the intended pages. Especially since all the pages are using the same stylesheet. <sub>_default.html</sub>
 ```
@@ -148,6 +148,7 @@ These are used to send in HTML partials you've made from /layouts/partials/\<fil
 ```
 
 <b>Range</b>
+
 A for-each loop. Ranges require an `{{ end }}`. 
 ```
 {{ range (where .Site.RegularPages "Section" "blog") }}
@@ -156,6 +157,7 @@ A for-each loop. Ranges require an `{{ end }}`.
 ```
 
 <b>If</b>
+
 If blocks. Also requires an end.
 ```
 {{ if eq $variable true }}
