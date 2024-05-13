@@ -2,38 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/developer-friendly-software/</loc>
+    <loc>/posts/developer-friendly-software/</loc>
     <lastmod>2024-05-08T21:36:23+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>/</loc>
     <lastmod>2024-05-08T21:36:23+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2024-05-08T21:36:23+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/fundamentals-of-ux/</loc>
+    <loc>/posts/fundamentals-of-ux/</loc>
     <lastmod>2024-05-04T20:43:06+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/flora-fauna/</loc>
+    <loc>/posts/flora-fauna/</loc>
     <lastmod>2024-05-04T20:24:46+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/plotlyjs-charts-for-dashboards/</loc>
+    <loc>/posts/plotlyjs-charts-for-dashboards/</loc>
     <lastmod>2024-05-04T18:15:46+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/page/about/</loc>
+    <loc>/page/about/</loc>
     <lastmod>2024-05-04T18:13:22+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker-angular/</loc>
+    <loc>/posts/docker-angular/</loc>
     <lastmod>2024-05-04T18:13:22+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/page/</loc>
+    <loc>/page/</loc>
     <lastmod>2024-05-04T18:13:22+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/hugo-101/</loc>
+    <loc>/posts/hugo-101/</loc>
     <lastmod>2024-05-04T15:50:56+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>/tags/</loc>
   </url>
 </urlset>

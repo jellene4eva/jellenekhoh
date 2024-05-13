@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nasi Lemak &amp; Piirakka</title>
-    <link>http://localhost:1313/</link>
+    <link>/</link>
     <description>Recent content on Nasi Lemak &amp; Piirakka</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 08 May 2024 21:36:23 +0300</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Developer Friendly Software</title>
-      <link>http://localhost:1313/posts/developer-friendly-software/</link>
+      <link>/posts/developer-friendly-software/</link>
       <pubDate>Wed, 08 May 2024 21:36:23 +0300</pubDate>
-      <guid>http://localhost:1313/posts/developer-friendly-software/</guid>
+      <guid>/posts/developer-friendly-software/</guid>
       <description>It&amp;rsquo;s ready now, you know it. You&amp;rsquo;ve spent a lot of time writing this masterpiece. Your finest work thus far. It&amp;rsquo;s time for other people on your team to know about this library / software you just made. You brace yourself for the positive feedback you&amp;rsquo;re going to get, oh fo&amp;rsquo; sho&#39;!&#xA;&amp;ldquo;How do I use this?&amp;rdquo;, &amp;ldquo;Why did you do that?&amp;rdquo;, &amp;ldquo;Oh we already have a library for that&amp;rdquo;&amp;hellip;</description>
     </item>
     <item>
       <title>Fundamentals of UX</title>
-      <link>http://localhost:1313/posts/fundamentals-of-ux/</link>
+      <link>/posts/fundamentals-of-ux/</link>
       <pubDate>Sat, 04 May 2024 20:43:06 +0300</pubDate>
-      <guid>http://localhost:1313/posts/fundamentals-of-ux/</guid>
+      <guid>/posts/fundamentals-of-ux/</guid>
       <description>UX (user experience) is the answer to the question of &amp;ldquo;why&amp;rdquo; and &amp;ldquo;how&amp;rdquo;. Why should we have this feature? Why is the button red? How do I look at my settings? Why is it so slow?&#xA;Most of the time we associate UX to UI (user interface). But UI is only a small part of the larger picture. The user can also be a programmer, or a customer of a physical device.</description>
     </item>
     <item>
       <title>Round the forest we run</title>
-      <link>http://localhost:1313/posts/flora-fauna/</link>
+      <link>/posts/flora-fauna/</link>
       <pubDate>Sat, 04 May 2024 20:24:46 +0300</pubDate>
-      <guid>http://localhost:1313/posts/flora-fauna/</guid>
+      <guid>/posts/flora-fauna/</guid>
       <description></description>
     </item>
     <item>
       <title>Plotly.js Charts for Dashboards</title>
-      <link>http://localhost:1313/posts/plotlyjs-charts-for-dashboards/</link>
+      <link>/posts/plotlyjs-charts-for-dashboards/</link>
       <pubDate>Sat, 04 May 2024 18:15:46 +0300</pubDate>
-      <guid>http://localhost:1313/posts/plotlyjs-charts-for-dashboards/</guid>
+      <guid>/posts/plotlyjs-charts-for-dashboards/</guid>
       <description>Today we&amp;rsquo;re going to look at a really powerful charting library that is really easy to use and set up. Plotly Open Source Graphing Library supports several programming languages, including Python, Matlab, R, and most importantly Javascript!&#xA;I&amp;rsquo;ve had to build a few dashboards for IoT companies, and charts are definitely one of the biggest elements in the view. Need I say more about the significance of charts to business related reporting such as sales, network monitoring, stocks etc.</description>
     </item>
     <item>
       <title>About Me</title>
-      <link>http://localhost:1313/page/about/</link>
+      <link>/page/about/</link>
       <pubDate>Sat, 04 May 2024 18:13:22 +0300</pubDate>
-      <guid>http://localhost:1313/page/about/</guid>
+      <guid>/page/about/</guid>
       <description>Nosy lil&amp;rsquo; fella aren&amp;rsquo;t ya?&#xA;I’m Jellene Khoh. Software developer, race driver wannabe, chocolate monster.&#xA;I had the opportunity to work in a game development company once, to make my love of art and music come to life in code. But that dream was crushed by intense stress of crunch time and exploitative work environment.&#xA;Now I try to do nice things with tech, clean up ugly websites, make life a little better for netizens everywhere.</description>
     </item>
     <item>
       <title>Docker Alpine &#43; ExpressJS &#43; Angular</title>
-      <link>http://localhost:1313/posts/docker-angular/</link>
+      <link>/posts/docker-angular/</link>
       <pubDate>Sat, 04 May 2024 18:13:22 +0300</pubDate>
-      <guid>http://localhost:1313/posts/docker-angular/</guid>
+      <guid>/posts/docker-angular/</guid>
       <description>This was for a project that I did recently that required a reporting dashboard app to be served from a docker image, and would live inside small low-powered linux devices. The app had to fulfill these criterias:&#xA;It needs to be replicated quickly for many devices It needs to be small, there isn&amp;rsquo;t a lot of space It needs to be able to connect to MariaDB database in the localhost network Certain fields are configurable from a JSON database that is exposed outside the container.</description>
     </item>
     <item>
       <title>Hugo 101</title>
-      <link>http://localhost:1313/posts/hugo-101/</link>
+      <link>/posts/hugo-101/</link>
       <pubDate>Sat, 04 May 2024 15:50:56 +0300</pubDate>
-      <guid>http://localhost:1313/posts/hugo-101/</guid>
+      <guid>/posts/hugo-101/</guid>
       <description>Hugo is an open source static site generator that is powered by Go - which makes it insanely fast to compile and run. What is a static site? Well it&amp;rsquo;s the most basic website of all, pure HTML. Hugo as a framework allows you to use templates to generate HTML files quickly. Let&amp;rsquo;s go over the pros and cons:&#xA;PROS It allows for variables in the template (using Hugo&amp;rsquo;s own templating engine based on Go) Highly customizable templates and styles At its core - it&amp;rsquo;s just HTML, with batteries Fairly easy to learn Minimization comes included CONS Not popular outside the US Not non-tech friendly - there are no dashboards or WYSIWYG editors for you to make blog posts Getting Started Here are the download links: https://gohugo.</description>
     </item>
   </channel>

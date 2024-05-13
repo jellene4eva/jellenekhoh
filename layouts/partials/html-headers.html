@@ -40,12 +40,20 @@
     {{- end -}}
   ">
 {{ end }}
+<!-- 
+<script defer src="{{ "js/uikit.min.js"}}"></script>
+<script defer src="{{ "js/uikit-icons.min.js"}}"></script>
+<link rel="stylesheet" href="{{ "css/uikit.min.css"}}"> -->
 
-<script defer src="{{ "js/uikit.min.js" | relURL }}"></script>
-<script defer src="{{ "js/uikit-icons.min.js" | relURL }}"></script>
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/css/uikit.min.css" />
 
-<link rel="stylesheet" href="{{ "css/uikit.min.css" | relURL }}">
-{{ $options := (dict "targetPath" "css/main.min.css" "outputStyle" "compressed" "enableSourceMap" true) }}
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit-icons.min.js"></script>
+
+
+{{ $options := (dict "targetPath" "/css/main.min.css" "outputStyle" "compressed" "enableSourceMap" true) }}
 {{ $style := resources.Get "scss/main.scss" | resources.ToCSS $options }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 
